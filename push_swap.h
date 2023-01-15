@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/14 17:19:47 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/15 17:14:19 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-void	push_swap(t_stack **a, t_stack **b, t_stack *top, t_stack *bottom);
+void	push_swap(t_pile stack);
 
 /*------------------ UTILS ------------------*/
 void	errors_process(char *str);
-t_stack	**split_arg_to_stack(char *arg);
-t_stack	**fill_stack(int ac, char **av);
+t_stack	**split_arg_to_stack(t_stack **a, char *arg);
+t_stack	**fill_stack(t_stack **a, int ac, char **av);
 
 /*------------------ STACK ------------------*/
 typedef struct s_stack
@@ -32,11 +32,16 @@ typedef struct s_stack
 	struct s_stack	*next;
 }		t_stack;
 
-t_stack	*new_element_stack(int data);
-int		stack_size(t_stack *stack);
-void	add_stack(t_stack **stack, t_stack *new);
+typedef struct s_pile
+{
+	t_stack	**a;
+	t_stack	**b;
+}		t_pile;
+
+t_stack	*new_element(int data);
+t_stack	*last_element(t_stack **stack);
+void	push_stack(t_stack **stack, t_stack *top);
+void	pop_stack(t_stack **stack);
 int		stack_is_empty(t_stack **stack);
-void	del_top_stack(t_stack *elem);
-void	stack_clear(t_stack **stack);
 
 #endif

@@ -6,17 +6,17 @@
 #    By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 14:30:13 by mle-boud          #+#    #+#              #
-#    Updated: 2023/01/14 15:12:28 by mle-boud         ###   ########.fr        #
+#    Updated: 2023/01/15 13:54:41 by mle-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = pushswap
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-HEADER = pipex.h
+HEADER = push_swap.h
 
 ################ SRCS ################
 SRCS = 

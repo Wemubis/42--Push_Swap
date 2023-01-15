@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rules_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 14:30:30 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 18:02:42 by mle-boud         ###   ########.fr       */
+/*   Created: 2023/01/15 14:14:06 by mle-boud          #+#    #+#             */
+/*   Updated: 2023/01/15 15:25:41 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	pa(t_pile stack)
 {
-	t_pile	stack;
+	if (stack_is_empty(stack.b) == 1)
+		return ;
+	push_stack(stack.a, *stack.b);
+	pop_stack(stack.b);
+	write(1, "pa\n", 3);
+}
 
-	if (ac < 2)
-		errors_process("e.g.: ./pushswap [nb] [nb] [nb]...");
-	if (ac == 2)
-		stack.a = split_arg_to_stack(stack.a, av[1]);
-	if (ac > 2)
-		stack.a = fill_stack(stack.a, ac, av);
-	push_swap(stack);
-	exit(EXIT_SUCCESS);
+void	pb(t_pile stack)
+{
+	if (stack_is_empty(stack.a) == 1)
+		return ;
+	push_stack(stack.b, *stack.a);
+	pop_stack(stack.a);
+	write(1, "pb\n", 3);
 }

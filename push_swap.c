@@ -6,12 +6,12 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:33:48 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/14 16:40:52 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:12:26 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_stack **a, t_stack **b)
+void	push_swap(t_pile stack)
 {
 }
