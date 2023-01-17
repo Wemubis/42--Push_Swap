@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_p.c                                          :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:14:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 15:25:41 by mle-boud         ###   ########.fr       */
+/*   Created: 2022/11/09 12:35:53 by mle-boud          #+#    #+#             */
+/*   Updated: 2022/11/09 16:57:50 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	pa(t_pile stack)
+int	ft_tolower(int c)
 {
-	if (stack_is_empty(stack.b) == 1)
-		return ;
-	push_stack(stack.a, stack.b);
-	pop_stack(stack.b);
-	write(1, "pa\n", 3);
-}
-
-void	pb(t_pile stack)
-{
-	if (stack_is_empty(stack.a) == 1)
-		return ;
-	push_stack(stack.b, stack.a);
-	pop_stack(stack.a);
-	write(1, "pb\n", 3);
+	if (c > 64 && c < 91)
+		c += 32;
+	return (c);
 }

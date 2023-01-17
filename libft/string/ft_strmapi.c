@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_p.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:14:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 15:25:41 by mle-boud         ###   ########.fr       */
+/*   Created: 2022/11/15 15:29:07 by mle-boud          #+#    #+#             */
+/*   Updated: 2022/11/15 15:43:04 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	pa(t_pile stack)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (stack_is_empty(stack.b) == 1)
-		return ;
-	push_stack(stack.a, stack.b);
-	pop_stack(stack.b);
-	write(1, "pa\n", 3);
-}
+	char	*dst;
+	int		i;
 
-void	pb(t_pile stack)
-{
-	if (stack_is_empty(stack.a) == 1)
-		return ;
-	push_stack(stack.b, stack.a);
-	pop_stack(stack.a);
-	write(1, "pb\n", 3);
+	if (!s || !f)
+		return (NULL);
+	dst = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!dst)
+		return (NULL);
+	i = -1;
+	while (s[++i])
+		dst[i] = f(i, s[i]);
+	dst[i] = '\0';
+	return (dst);
 }

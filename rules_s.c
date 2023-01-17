@@ -16,11 +16,12 @@ void	sa(t_pile stack)
 {
 	t_stack	*temp;
 
-	if (stack_is_empty(stack.a) == 1 || (*stack.a)->next == NULL)
+	if (stack_is_empty(stack.a) || stack.a->next == NULL)
 		return ;
-	temp = *stack.a;
-	*stack.a = (*stack.a)->next;
-	(*stack.a)->next = temp;
+	temp = stack.a;
+	stack.a = stack.a->next;
+	stack.a->next = temp;
+	// temp->next = (*stack.a)->next->next;
 	write(1, "sa\n", 3);
 }
 
@@ -28,11 +29,12 @@ void	sb(t_pile stack)
 {
 	t_stack	*temp;
 
-	if (stack_is_empty(stack.b) == 1 || (*stack.b)->next == NULL)
+	if (stack_is_empty(stack.b) || stack.b->next == NULL)
 		return ;
-	temp = *stack.b;
-	*stack.b = (*stack.b)->next;
-	(*stack.b)->next = temp;
+	temp = stack.b;
+	stack.b = stack.b->next;
+	stack.b->next = temp;
+	// temp->next = (*stack.b)->next->next;
 	write(1, "sb\n", 3);
 }
 

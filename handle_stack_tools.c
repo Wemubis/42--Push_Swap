@@ -23,42 +23,37 @@ t_stack	*new_element(int data)
 	new->next = NULL;
 }
 
-void	push_stack(t_stack **stack, t_stack *top)
+void	push_stack(t_stack *stack, t_stack *top)
 {
 	if (!top)
 		return ;
-	top->next = *stack;
-	*stack = top;
+	top->next = stack;
+	stack = top;
 }
 
-void	pop_stack(t_stack **stack)
+void	pop_stack(t_stack *stack)
 {
 	t_stack	*temp;
 
-	if (*stack != NULL)
+	if (stack != NULL)
 	{
-		temp = *stack;
-		*stack = (*stack)->next;
+		temp = stack;
+		stack = stack->next;
 		temp->next = NULL;
 		free(temp);
 	}
 }
 
-t_stack	*last_element(t_stack **stack)
+t_stack	*last_element(t_stack *stack)
 {
-	if (!*stack)
+	if (!stack)
 		return (NULL);
-	while ((*stack)->next != NULL)
-		*stack = (*stack)->next;
-	return (*stack);
+	while (stack->next != NULL)
+		stack = stack->next;
+	return (stack);
 }
 
-int	stack_is_empty(t_stack **stack)
+int	stack_is_empty(t_stack *stack)
 {
-	if (!*stack)
-	{
-		*stack = NULL;
-		return (1);
-	}
-	return (0);
+	return (stack == NULL);
 }

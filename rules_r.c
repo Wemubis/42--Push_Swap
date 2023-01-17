@@ -17,10 +17,10 @@ void	ra(t_pile stack)
 	t_stack	*temp;
 	t_stack	*last;
 
-	if (stack_is_empty(stack.a) == 1 || (*stack.a)->next == NULL)
+	if (stack_is_empty(stack.a) || stack.a->next == NULL)
 		return ;
-	temp = *stack.a;
-	*stack.a = (*stack.a)->next;
+	temp = stack.a;
+	stack.a = stack.a->next;
 	last = last_element(stack.a);
 	last->next = temp;
 	temp->next = NULL;
@@ -32,10 +32,10 @@ void	rb(t_pile stack)
 	t_stack	*temp;
 	t_stack	*last;
 
-	if (stack_is_empty(stack.b) == 1 || (*stack.b)->next == NULL)
+	if (stack_is_empty(stack.b) || stack.b->next == NULL)
 		return ;
-	temp = *stack.b;
-	*stack.b = (*stack.b)->next;
+	temp = stack.b;
+	stack.b = stack.b->next;
 	last = last_element(stack.b);
 	last->next = temp;
 	temp->next = NULL;

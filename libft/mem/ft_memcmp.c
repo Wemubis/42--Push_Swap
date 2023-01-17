@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_p.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:14:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 15:25:41 by mle-boud         ###   ########.fr       */
+/*   Created: 2022/11/09 15:14:40 by mle-boud          #+#    #+#             */
+/*   Updated: 2022/11/13 17:07:58 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	pa(t_pile stack)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (stack_is_empty(stack.b) == 1)
-		return ;
-	push_stack(stack.a, stack.b);
-	pop_stack(stack.b);
-	write(1, "pa\n", 3);
-}
+	unsigned char	*ps;
+	unsigned char	*sp;
+	size_t			i;
 
-void	pb(t_pile stack)
-{
-	if (stack_is_empty(stack.a) == 1)
-		return ;
-	push_stack(stack.b, stack.a);
-	pop_stack(stack.a);
-	write(1, "pb\n", 3);
+	i = 0;
+	ps = (unsigned char *)s1;
+	sp = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	while (i < n)
+	{
+		if (ps[i] != sp[i])
+			return (ps[i] - sp[i]);
+		i++;
+	}
+	return (0);
 }

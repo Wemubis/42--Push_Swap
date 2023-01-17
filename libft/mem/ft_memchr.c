@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_p.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:14:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 15:25:41 by mle-boud         ###   ########.fr       */
+/*   Created: 2022/11/09 14:54:35 by mle-boud          #+#    #+#             */
+/*   Updated: 2022/11/14 13:06:47 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	pa(t_pile stack)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (stack_is_empty(stack.b) == 1)
-		return ;
-	push_stack(stack.a, stack.b);
-	pop_stack(stack.b);
-	write(1, "pa\n", 3);
-}
+	unsigned char	*ps;
+	unsigned char	ch;
 
-void	pb(t_pile stack)
-{
-	if (stack_is_empty(stack.a) == 1)
-		return ;
-	push_stack(stack.b, stack.a);
-	pop_stack(stack.a);
-	write(1, "pb\n", 3);
+	ch = (unsigned char)c;
+	ps = (unsigned char *)s;
+	while (n)
+	{
+		if (*ps == ch)
+			return (ps);
+		ps++;
+		n--;
+	}
+	return (NULL);
 }

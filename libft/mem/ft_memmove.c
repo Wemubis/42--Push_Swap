@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_p.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:14:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 15:25:41 by mle-boud         ###   ########.fr       */
+/*   Created: 2022/11/09 11:43:31 by mle-boud          #+#    #+#             */
+/*   Updated: 2022/11/13 17:54:51 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	pa(t_pile stack)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (stack_is_empty(stack.b) == 1)
-		return ;
-	push_stack(stack.a, stack.b);
-	pop_stack(stack.b);
-	write(1, "pa\n", 3);
-}
+	char	*s1;
+	char	*s2;
 
-void	pb(t_pile stack)
-{
-	if (stack_is_empty(stack.a) == 1)
-		return ;
-	push_stack(stack.b, stack.a);
-	pop_stack(stack.a);
-	write(1, "pb\n", 3);
+	s1 = (char *)src;
+	s2 = (char *)dst;
+	if (s1 < s2)
+		while (len-- > 0)
+			s2[len] = s1[len];
+	else
+		ft_memcpy(s2, s1, len);
+	return (dst);
 }

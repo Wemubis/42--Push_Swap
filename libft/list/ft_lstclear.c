@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_p.c                                          :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:14:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 15:25:41 by mle-boud         ###   ########.fr       */
+/*   Created: 2022/11/16 17:37:11 by mle-boud          #+#    #+#             */
+/*   Updated: 2022/11/16 18:22:16 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	pa(t_pile stack)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (stack_is_empty(stack.b) == 1)
-		return ;
-	push_stack(stack.a, stack.b);
-	pop_stack(stack.b);
-	write(1, "pa\n", 3);
-}
+	t_list	*elem;
+	t_list	*adjacent;
 
-void	pb(t_pile stack)
-{
-	if (stack_is_empty(stack.a) == 1)
+	if (!lst || !del)
 		return ;
-	push_stack(stack.b, stack.a);
-	pop_stack(stack.a);
-	write(1, "pb\n", 3);
+	if (!*lst)
+	{
+		*lst = NULL;
+		return ;
+	}
+	elem = *lst;
+	while (elem)
+	{
+		adjacent = elem->next;
+		ft_lstdelone(elem, del);
+		elem = adjacent;
+	}
+	*lst = NULL;
 }

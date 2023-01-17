@@ -1,31 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_p.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:14:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 15:25:41 by mle-boud         ###   ########.fr       */
+/*   Created: 2022/11/15 18:13:16 by mle-boud          #+#    #+#             */
+/*   Updated: 2022/11/15 18:41:48 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	pa(t_pile stack)
+static long	len_nb_power_ten(int n)
 {
-	if (stack_is_empty(stack.b) == 1)
-		return ;
-	push_stack(stack.a, stack.b);
-	pop_stack(stack.b);
-	write(1, "pa\n", 3);
+	long	len;
+
+	len = 1;
+	n /= 10;
+	while (n)
+	{
+		len *= 10;
+		n /= 10;
+	}
+	return (len);
 }
 
-void	pb(t_pile stack)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (stack_is_empty(stack.a) == 1)
-		return ;
-	push_stack(stack.b, stack.a);
-	pop_stack(stack.a);
-	write(1, "pb\n", 3);
+	long	nb;
+	int		len;
+
+	nb = n;
+	len = len_nb_power_ten(n);
+	if (nb == 0)
+		write(fd, "0", 1);
+	if (nb < 0)
+	{
+		nb *= -1;
+		write (fd, "-", 1);
+	}
+	while (len)
+	{
+		ft_putchar_fd(nb / len + 48, fd);
+		nb %= len;
+		len /= 10;
+	}
 }
