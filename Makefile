@@ -6,7 +6,7 @@
 #    By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 14:30:13 by mle-boud          #+#    #+#              #
-#    Updated: 2023/01/18 17:15:53 by mle-boud         ###   ########.fr        #
+#    Updated: 2023/01/18 18:42:01 by mle-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ OBJS_SRCS = $(patsubst %.c, %.o,$(SRCS))
 OBJS_RULES =  $(patsubst %.c,%.o,$(SRCS_RULES))
 OBJS_SORT =  $(patsubst %.c,%.o,$(SRCS_SORT))
 OBJS_UTILS =  $(patsubst %.c,%.o,$(SRCS_UTILS))
+OBJS = $(OBJS_SRCS) $(OBJS_RULES) $(OBJS_SORT) $(OBJS_UTILS)
 
 ################ PHONY ################
 .PHONY: all clean fclean re $(NAME)
@@ -51,7 +52,7 @@ OBJS_UTILS =  $(patsubst %.c,%.o,$(SRCS_UTILS))
 all: otherMakefile $(NAME)
 
 $(NAME): $(OBJS) libft/libft.a
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $^ -fsanitize=address -g -o $@
 
 otherMakefile:
 	make -C libft

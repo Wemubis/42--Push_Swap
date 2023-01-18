@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:16:56 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 17:14:26 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:15:59 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_stack	*new_element(int data)
 		return (NULL);
 	new->data = data;
 	new->next = NULL;
+	return (new);
 }
 
 void	push_stack(t_stack *stack, t_stack *top)
