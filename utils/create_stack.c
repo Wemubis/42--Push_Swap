@@ -6,11 +6,12 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:56:57 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 18:27:28 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:15:34 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 t_stack	*split_arg_to_stack(t_stack *a, char *arg)
 {
@@ -37,7 +38,7 @@ t_stack	*fill_stack(t_stack *a, int ac, char **av)
 	t_stack	*top;
 
 	check_stack_validity(av);
-	while (ac > 0)
+	while (ac > 1)
 	{
 		top = new_element((int)av[ac -1]);
 		push_stack(a, top);

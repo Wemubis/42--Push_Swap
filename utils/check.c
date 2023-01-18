@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:50:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/18 17:19:38 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:43:57 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	check_if_sorted(t_stack *stack)
 
 	i = 0;
 	temp_content = stack->data;
+	if (!stack->next)
+		return (1);
 	tmp = stack->next;
 	while ((temp_content < tmp->data) && tmp->next)
 	{
@@ -37,24 +39,19 @@ void	check_stack_validity(char **args)
 	int		i;
 	int		j;
 	int		after_atoi;
-	char	*after_itoa;
-	char	**test_double;
 
-	i = 0;
-	test_double = args;
-	while (args[++i])
+	i = 1;
+	while (args[i])
 	{
-		after_atoi = atoi(args[i]);
-		after_itoa = itoa(after_atoi);
-		if (args[i] != after_itoa)
-			errors_process("A non int has been detected");
+		after_atoi = ft_atoi(args[i]);
 		j = i;
 		while (args[j])
 		{
-			if (args[i] == test_double[j])
+			if (args[i] == args[j + 1])
 				errors_process("A double has been detected");
 			j++;
 		}
+		i++;
 	}
 }
 
