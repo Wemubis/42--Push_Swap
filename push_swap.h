@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 17:14:19 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/18 13:33:56 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,19 @@ void	push_swap(t_pile stack);
 void	errors_process(char *str);
 t_stack	*split_arg_to_stack(t_stack *a, char *arg);
 t_stack	*fill_stack(t_stack *a, int ac, char **av);
+
+/*------------------ RULES ------------------*/
+void	pa(t_pile stack);
+void	pb(t_pile stack);
+void	sa(t_pile stack);
+void	sb(t_pile stack);
+void	ss(t_pile stack);
+void	ra(t_pile stack);
+void	rb(t_pile stack);
+void	rr(t_pile stack);
+void	rra(t_pile stack);
+void	rrb(t_pile stack);
+void	rrr(t_pile stack);
 
 /*------------------ STACK ------------------*/
 typedef struct s_stack
