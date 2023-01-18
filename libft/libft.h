@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:44:52 by mle-boud          #+#    #+#             */
-/*   Updated: 2022/11/18 14:20:19 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:58:42 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include <stdarg.h>
+# include <limits.h>
 
 /*-------------------------FCTN-------------------------*/
 
@@ -35,10 +36,10 @@ int		ft_putstr_printf(char *s);
 
 /*-----------------GNL----------------*/
 char	*get_next_line(int fd);
-size_t	ft_strlen(char *str);
-char	*ft_strdup(char *s);
-char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *s1, char *s2);
+size_t	gnl_strlen(char *str);
+char	*gnl_strdup(char *s);
+char	*gnl_strchr(char *s, int c);
+char	*gnl_strjoin(char *s1, char *s2);
 char	*keep_left(char *s);
 
 /*----------------CHAR----------------*/

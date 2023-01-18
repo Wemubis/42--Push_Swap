@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_stack_validity.c                             :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 18:04:28 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 18:37:55 by mle-boud         ###   ########.fr       */
+/*   Created: 2023/01/17 08:53:40 by mle-boud          #+#    #+#             */
+/*   Updated: 2023/01/18 17:35:06 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_stack_validity(char	**args)
+static void	sort_in_b(t_pile stack)
 {
-	int		i;
-	int		j;
-	int		after_atoi;
-	char	*after_itoa;
-	char	**test_double;
+	
+}
 
-	i = 0;
-	test_double = args;
-	while (args[++i])
+void	sort_small(t_pile stack)
+{
+	int	size_a;
+
+	size_a = size_stack(stack.a);
+	set_ranking(stack.a);
+	if (size_a > 3)
+		sort_in_b(stack);
+	while (!check_if_sorted(stack.a))
 	{
-		after_atoi = atoi(args[i]);
-		after_itoa = itoa(after_atoi);
-		if (args[i] != after_itoa)
-			errors_process("A non int has been detected");
-		j = i;
-		while (args[j])
-		{
-			if (args[i] == test_double[j])
-				errors_process("A double has been detected");
-			j++;
-		}
+		if (stack.a->rank == (size_a - 1))
+			ra(stack);
+		else if (stack.a->rank > stack.a->next->rank)
+			sa(stack);
+		else
+			rra(stack);
+	}
+	while (size_a > 3)
+	{
+		pa(stack);
+		size_a--;
 	}
 }

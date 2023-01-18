@@ -6,7 +6,7 @@
 #    By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 14:30:13 by mle-boud          #+#    #+#              #
-#    Updated: 2023/01/15 13:54:41 by mle-boud         ###   ########.fr        #
+#    Updated: 2023/01/18 17:15:53 by mle-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,31 @@ RM = rm -f
 
 HEADER = push_swap.h
 
+################ DIRS ################
+DIR_RULES = rules/
+DIR_SORT = sort/
+DIR_UTILS = utils/
+
 ################ SRCS ################
-SRCS = 
+SRCS = main.c push_swap.c \
+
+RULES = rules_p.c rules_r.c rules_rr.c rules_s.c \
+
+SORT = sort_big.c sort_huge.c sort_small.c \
+
+UTILS = check.c create_stack.c errors_process.c set_ranking.c \
+		handle_stack_tools.c handle_stack_tools_1.c \
+
+############ DIRS + SRCS #############
+SRCS_RULES = $(addprefix $(DIR_RULES), $(RULES))
+SRCS_SORT = $(addprefix $(DIR_SORT), $(SORT))
+SRCS_UTILS = 	$(addprefix $(DIR_UTILS), $(UTILS))
 
 ################ OBJS ################
-OBJS = $(patsubst %.c,%.o,$(SRCS))
+OBJS_SRCS = $(patsubst %.c, %.o,$(SRCS))
+OBJS_RULES =  $(patsubst %.c,%.o,$(SRCS_RULES))
+OBJS_SORT =  $(patsubst %.c,%.o,$(SRCS_SORT))
+OBJS_UTILS =  $(patsubst %.c,%.o,$(SRCS_UTILS))
 
 ################ PHONY ################
 .PHONY: all clean fclean re $(NAME)

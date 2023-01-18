@@ -6,12 +6,13 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:09:31 by mle-boud          #+#    #+#             */
-/*   Updated: 2022/11/23 16:57:36 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:58:22 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlen(char *str)
+size_t	gnl_strlen(char *str)
 {
 	size_t	i;
 
@@ -21,12 +22,12 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strdup(char *s)
+char	*gnl_strdup(char *s)
 {
 	char	*dst;
 	int		i;
 
-	dst = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	dst = malloc(sizeof(char) * (gnl_strlen(s) + 1));
 	if (!dst)
 		return (NULL);
 	i = 0;
@@ -39,7 +40,7 @@ char	*ft_strdup(char *s)
 	return (dst);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*gnl_strchr(char *s, int c)
 {
 	int	i;
 
@@ -55,7 +56,7 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	char	*dst;
 	int		i;
@@ -64,11 +65,11 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s1)
-		return (ft_strdup(s2));
+		return (gnl_strdup(s2));
 	if (!s2)
-		return (ft_strdup(s1));
-	len_s1 = ft_strlen(s1);
-	dst = malloc(len_s1 + ft_strlen(s2) + 1);
+		return (gnl_strdup(s1));
+	len_s1 = gnl_strlen(s1);
+	dst = malloc(len_s1 + gnl_strlen(s2) + 1);
 	if (!dst)
 		return (NULL);
 	i = -1;
