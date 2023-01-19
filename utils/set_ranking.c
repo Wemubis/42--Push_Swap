@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	set_ranking(t_stack *stack)
+void	set_ranking(t_stack **stack)
 {
 	int		ranking;
 	int		i;
@@ -20,19 +20,19 @@ void	set_ranking(t_stack *stack)
 	t_stack	*start;
 
 	i = 0;
-	start = stack;
-	while (stack)
+	start = *stack;
+	while (*stack)
 	{
 		temp = start;
 		ranking = 0;
 		while (temp)
 		{
-			if (stack->data > temp->data)
+			if ((*stack)->data > temp->data)
 				ranking++;
 			temp = temp->next;
 		}
-		stack->rank = ranking;
-		stack = stack->next;
+		(*stack)->rank = ranking;
+		*stack = (*stack)->next;
 		i++;
 	}
 }

@@ -21,7 +21,7 @@ static void	sort_in_b(t_pile stack)
 	size_a = size_stack(stack.a);
 	while (size_stack(stack.a) > 3)
 	{
-		if (stack.a->rank == x)
+		if ((*stack.a)->rank == x)
 		{
 			pb(stack);
 			x++;
@@ -45,9 +45,9 @@ void	sort_small(t_pile stack)
 		sort_in_b(stack);
 	while (!check_if_sorted(stack.a))
 	{
-		if (stack.a->rank == (size_a - 1))
+		if ((*stack.a)->rank == (size_a - 1))
 			ra(stack);
-		else if (stack.a->rank > stack.a->next->rank)
+		else if ((*stack.a)->rank > (*stack.a)->next->rank)
 			sa(stack);
 		else
 			rra(stack);

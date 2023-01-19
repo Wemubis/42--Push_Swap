@@ -16,6 +16,7 @@
 /*----------------- HEADERS -----------------*/
 # include "libft/libft.h"
 
+/*----------------- STRUCTS -----------------*/
 typedef struct s_stack
 {
 	int				data;
@@ -25,21 +26,21 @@ typedef struct s_stack
 
 typedef struct s_pile
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	**a;
+	t_stack	**b;
 }		t_pile;
 
 /*------------------ TRUNK ------------------*/
 void	push_swap(t_pile stack);
 
 /*------------------ UTILS ------------------*/
-int		check_if_sorted(t_stack *stack);
-int		find_location(t_stack *stack, int rank);
+int		check_if_sorted(t_stack **stack);
+int		find_location(t_stack **stack, int rank);
 void	errors_process(char *str);
 void	check_stack_validity(char **args);
-void	set_ranking(t_stack *stack);
-t_stack	*split_arg_to_stack(t_stack *a, char *arg);
-t_stack	*fill_stack(t_stack *a, int ac, char **av);
+void	set_ranking(t_stack **stack);
+t_stack	*split_arg_to_stack(t_stack **a, char *arg);
+t_stack	*fill_stack(t_stack **a, int ac, char **av);
 
 /*------------------- SORT ------------------*/
 void	sort_small(t_pile stack);
@@ -59,10 +60,10 @@ void	rrr(t_pile stack);
 
 /*------------------ STACK ------------------*/
 t_stack	*new_element(int data);
-t_stack	*last_element(t_stack *stack);
-void	push_stack(t_stack *stack, t_stack *top);
-void	pop_stack(t_stack *stack);
-int		size_stack(t_stack *stack);
-int		stack_is_empty(t_stack *stack);
+t_stack	*last_element(t_stack **stack);
+void	push_stack(t_stack **stack, t_stack *top);
+void	pop_stack(t_stack **stack);
+int		size_stack(t_stack **stack);
+int		stack_is_empty(t_stack **stack);
 
 #endif

@@ -12,21 +12,21 @@
 
 #include "push_swap.h"
 
-int	check_if_sorted(t_stack *stack)
+int	check_if_sorted(t_stack **stack)
 {
 	int		temp_content;
 	int		i;
 	t_stack	*tmp;
 
 	i = 0;
-	temp_content = stack->data;
-	if (!stack->next)
+	temp_content = (*stack)->data;
+	if (!(*stack)->next)
 		return (1);
-	tmp = stack->next;
+	tmp = (*stack)->next;
 	while ((temp_content < tmp->data) && tmp->next)
 	{
 		temp_content = tmp->data;
-		tmp = stack->next;
+		tmp = (*stack)->next;
 		i++;
 	}
 	if (i == size_stack(stack))
@@ -55,14 +55,14 @@ void	check_stack_validity(char **args)
 	}
 }
 
-int	find_location(t_stack *stack, int rank)
+int	find_location(t_stack **stack, int rank)
 {
 	int	location;
 
 	location = 0;
-	while (stack->rank != rank)
+	while ((*stack)->rank != rank)
 	{
-		stack = stack->next;
+		(*stack) = (*stack)->next;
 		location++;
 	}
 	return (location);

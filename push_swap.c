@@ -15,8 +15,8 @@
 
 void	push_swap(t_pile stack)
 {
-	while (stack.a->next)
-		printf("%d", stack.a->data);
+	while ((*stack.a)->next)
+		printf("%d", (*stack.a)->data);
 	// if (check_if_sorted(stack.a))
 	// 	exit(EXIT_SUCCESS);
 	// if (size_stack(stack.a) <= 5)

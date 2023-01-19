@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-t_stack	*split_arg_to_stack(t_stack *a, char *arg)
+t_stack	*split_arg_to_stack(t_stack **a, char *arg)
 {
 	t_stack	*top;
 	char	**tab;
@@ -33,7 +33,7 @@ t_stack	*split_arg_to_stack(t_stack *a, char *arg)
 	return (a);
 }
 
-t_stack	*fill_stack(t_stack *a, int ac, char **av)
+t_stack	*fill_stack(t_stack **a, int ac, char **av)
 {
 	t_stack	*top;
 

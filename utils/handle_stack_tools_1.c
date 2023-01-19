@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-int	size_stack(t_stack *stack)
+int	size_stack(t_stack **stack)
 {
 	int	x;
 
 	x = 0;
-	while (stack)
+	while (*stack)
 	{
-		stack = stack->next;
+		*stack = (*stack)->next;
 		x++;
 	}
 	return (x);
