@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:50:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/18 18:43:57 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:00:42 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int	check_if_sorted(t_stack **stack)
 	t_stack	*tmp;
 
 	i = 0;
-	temp_content = (*stack)->data;
-	if (!(*stack)->next)
+	temp_content = stack[i]->data;
+	if (!stack[i]->next)
 		return (1);
-	tmp = (*stack)->next;
+	tmp = stack[i]->next;
 	while ((temp_content < tmp->data) && tmp->next)
 	{
 		temp_content = tmp->data;
-		tmp = (*stack)->next;
+		tmp = stack[i]->next;
 		i++;
 	}
 	if (i == size_stack(stack))
