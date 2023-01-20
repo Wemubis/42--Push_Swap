@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:16:56 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/18 19:15:59 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:30:55 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,29 @@ t_stack	*new_element(int data)
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	new->data = data;
 	new->next = NULL;
 	return (new);
 }
 
-void	push_stack(t_stack **stack, t_stack *top)
+void	push_stack(t_stack **stack, int data)
 {
-	if (!top)
-		return ;
-	top->next = *stack;
-	*stack = top;
+	t_stack	*temp;
+
+	temp = new_element(data);
+	if (!temp)
+		exit(EXIT_FAILURE);
+	if (stack_is_empty(stack))
+	{
+		temp->next = NULL;
+		*stack = temp;
+	}
+	else
+	{
+		temp->next = *stack;
+		*stack = temp;
+	}
 }
 
 void	pop_stack(t_stack **stack)
@@ -38,8 +49,8 @@ void	pop_stack(t_stack **stack)
 
 	if (*stack)
 	{
-		temp = *stack;
-		*stack = (*stack)->next;
+		temp = stack[0];
+		stack[0] = stack[0]->next;
 		temp->next = NULL;
 		free(temp);
 	}
@@ -47,14 +58,19 @@ void	pop_stack(t_stack **stack)
 
 t_stack	*last_element(t_stack **stack)
 {
+	int	i;
+
+	i = -1;
 	if (!*stack)
 		return (NULL);
-	while ((*stack)->next != NULL)
-		*stack = (*stack)->next;
-	return (*stack);
+	while (stack[++i]->next != NULL)
+		stack[i] = stack[i]->next;
+	return (stack[i]);
 }
 
 int	stack_is_empty(t_stack **stack)
 {
-	return (*stack == NULL);
+	if (*stack == NULL)
+		return (1);
+	return (0);
 }

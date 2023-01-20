@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:30 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/15 18:02:42 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:52:55 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int ac, char **av)
 {
 	t_pile	stack;
 
+	stack.a = malloc(sizeof(t_stack *));
 	if (ac < 2)
 		errors_process("e.g.: ./pushswap [nb] [nb] [nb]...");
 	if (ac == 2)

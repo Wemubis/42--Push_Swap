@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/18 19:08:32 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:41:58 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int		find_location(t_stack **stack, int rank);
 void	errors_process(char *str);
 void	check_stack_validity(char **args);
 void	set_ranking(t_stack **stack);
-t_stack	*split_arg_to_stack(t_stack **a, char *arg);
-t_stack	*fill_stack(t_stack **a, int ac, char **av);
+t_stack	**split_arg_to_stack(t_stack **a, char *arg);
+t_stack	**fill_stack(t_stack **a, int ac, char **av);
 
 /*------------------- SORT ------------------*/
 void	sort_small(t_pile stack);
@@ -61,7 +61,7 @@ void	rrr(t_pile stack);
 /*------------------ STACK ------------------*/
 t_stack	*new_element(int data);
 t_stack	*last_element(t_stack **stack);
-void	push_stack(t_stack **stack, t_stack *top);
+void	push_stack(t_stack **stack, int data);
 void	pop_stack(t_stack **stack);
 int		size_stack(t_stack **stack);
 int		stack_is_empty(t_stack **stack);
