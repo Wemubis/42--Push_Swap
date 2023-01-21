@@ -6,7 +6,7 @@
 #    By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 14:30:13 by mle-boud          #+#    #+#              #
-#    Updated: 2023/01/21 19:46:15 by mle-boud         ###   ########.fr        #
+#    Updated: 2023/01/21 19:55:05 by mle-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ RULES = rules_p.c rules_r.c rules_rr.c rules_s.c \
 SORT = sort_big.c sort_huge.c sort_small.c \
 
 UTILS = check.c create_stack.c errors_process.c replace_data_with_rank.c \
-		handle_stack_tools.c handle_stack_tools_1.c \
+		stack_tools.c stack_tools_1.c \
 
 ############ DIRS + SRCS #############
 SRCS_RULES = $(addprefix $(DIR_RULES), $(RULES))

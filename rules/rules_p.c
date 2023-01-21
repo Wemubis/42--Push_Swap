@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:14:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/21 18:06:12 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 20:13:29 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	pb(t_pile *a, t_pile *b)
 {
 	if (a->first == NULL)
 		return ;
-	push_stack(b->first, pop(a));
+	push_before(b->first, pop(a));
 	write(1, "pb\n", 3);
 }
