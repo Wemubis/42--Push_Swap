@@ -15,10 +15,13 @@
 
 void	push_swap(t_pile stack)
 {
-	while ((*stack.a)->next != NULL)
+	t_stack	*tmp;
+
+	tmp = *stack.a;
+	while (tmp->next != NULL)
 	{
-		printf("%d", (*stack.a)->data);
-		*stack.a = (*stack.a)->next;
+		printf("%d", tmp->data);
+		tmp = tmp->next;
 	}
 	// if (check_if_sorted(stack.a))
 	// 	exit(EXIT_SUCCESS);

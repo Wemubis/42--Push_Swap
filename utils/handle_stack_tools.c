@@ -32,15 +32,10 @@ void	push_stack(t_stack **stack, int data)
 	if (!temp)
 		exit(EXIT_FAILURE);
 	if (stack_is_empty(stack))
-	{
-		temp->next = NULL;
 		*stack = temp;
-	}
 	else
-	{
 		temp->next = *stack;
-		*stack = temp;
-	}
+
 }
 
 void	pop_stack(t_stack **stack)
@@ -49,8 +44,8 @@ void	pop_stack(t_stack **stack)
 
 	if (*stack)
 	{
-		temp = stack[0];
-		stack[0] = stack[0]->next;
+		temp = *stack;
+		*stack = (*stack)->next;
 		temp->next = NULL;
 		free(temp);
 	}
@@ -58,14 +53,14 @@ void	pop_stack(t_stack **stack)
 
 t_stack	*last_element(t_stack **stack)
 {
-	int	i;
+	t_stack	*tmp;
 
-	i = -1;
 	if (!*stack)
 		return (NULL);
-	while (stack[++i]->next != NULL)
-		stack[i] = stack[i]->next;
-	return (stack[i]);
+	tmp = *stack;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	return (tmp);
 }
 
 int	stack_is_empty(t_stack **stack)

@@ -14,19 +14,19 @@
 
 int	check_if_sorted(t_stack **stack)
 {
-	int		temp_content;
+	int		content;
 	int		i;
 	t_stack	*tmp;
 
 	i = 0;
-	temp_content = stack[i]->data;
-	if (!stack[i]->next)
+	content = (*stack)->data;
+	if (!(*stack)->next)
 		return (1);
-	tmp = stack[i]->next;
-	while ((temp_content < tmp->data) && tmp->next)
+	tmp = (*stack)->next;
+	while ((content < tmp->data) && tmp->next)
 	{
-		temp_content = tmp->data;
-		tmp = stack[i]->next;
+		content = tmp->data;
+		tmp = tmp->next;
 		i++;
 	}
 	if (i == size_stack(stack))
@@ -58,11 +58,13 @@ void	check_stack_validity(char **args)
 int	find_location(t_stack **stack, int rank)
 {
 	int	location;
+	t_stack	*tmp;
 
 	location = 0;
-	while ((*stack)->rank != rank)
+	tmp = *stack;
+	while (tmp->rank != rank)
 	{
-		(*stack) = (*stack)->next;
+		tmp = tmp->next;
 		location++;
 	}
 	return (location);

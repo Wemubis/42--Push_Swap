@@ -15,26 +15,23 @@
 void	set_ranking(t_stack **stack)
 {
 	int		ranking;
-	int		i;
-	int		k;
-	t_stack	*temp;
+	t_stack	*tmp;
+	t_stack	*tmp1;
 	t_stack	*start;
 
-	i = 0;
-	start = stack[0];
-	k = -1;
-	while (stack[++k])
+	start = *stack;
+	tmp1 = start;
+	while (tmp1)
 	{
-		temp = start;
+		tmp = start;
 		ranking = 0;
-		while (temp)
+		while (tmp)
 		{
-			if (stack[k]->data > temp->data)
+			if (tmp1->data > tmp->data)
 				ranking++;
-			temp = temp->next;
+			tmp = tmp->next;
 		}
-		stack[k]->rank = ranking;
-		stack[k] = stack[k]->next;
-		i++;
+		tmp1->rank = ranking;
+		tmp1 = tmp1->next;
 	}
 }

@@ -14,14 +14,16 @@
 
 static void	sort_in_b(t_pile stack)
 {
-	int	size_a;
-	int	x;
+	t_stack	*tmp;
+	int		size_a;
+	int		x;
 
 	x = 0;
 	size_a = size_stack(stack.a);
+	tmp = *stack.a;
 	while (size_stack(stack.a) > 3)
 	{
-		if ((*stack.a)->rank == x)
+		if (tmp->rank == x)
 		{
 			pb(stack);
 			x++;
@@ -37,17 +39,19 @@ static void	sort_in_b(t_pile stack)
 
 void	sort_small(t_pile stack)
 {
-	int	size_a;
+	t_stack	*tmp;
+	int		size_a;
 
 	size_a = size_stack(stack.a);
 	set_ranking(stack.a);
 	if (size_a > 3)
 		sort_in_b(stack);
+	tmp = *stack.a;
 	while (!check_if_sorted(stack.a))
 	{
-		if ((*stack.a)->rank == (size_a - 1))
+		if (tmp->rank == (size_a - 1))
 			ra(stack);
-		else if ((*stack.a)->rank > (*stack.a)->next->rank)
+		else if (tmp->rank > tmp->next->rank)
 			sa(stack);
 		else
 			rra(stack);

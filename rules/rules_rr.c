@@ -14,30 +14,31 @@
 
 void	rra(t_pile stack)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 	t_stack	*last;
 
 	if (stack_is_empty(stack.a) || (*stack.a)->next == NULL)
 		return ;
-	temp = *stack.a;
 	last = last_element(stack.a);
-	last->next = temp;
-	while ((*stack.a)->next->next)
-		*stack.a = (*stack.a)->next;
-	(*stack.a)->next = NULL;
+	tmp = *stack.a;
+	while (tmp->next->next)
+		tmp = tmp->next;
+	tmp->next = NULL;
+	last->next = *stack.a;
 	write(1, "rra\n", 3);
 }
 
+// see if what's on top is okay
 void	rrb(t_pile stack)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 	t_stack	*last;
 
 	if (stack_is_empty(stack.b) || (*stack.b)->next == NULL)
 		return ;
-	temp = *stack.b;
+	tmp = *stack.b;
 	last = last_element(stack.b);
-	last->next = temp;
+	last->next = tmp;
 	while ((*stack.b)->next->next)
 		*stack.b = (*stack.b)->next;
 	(*stack.b)->next = NULL;

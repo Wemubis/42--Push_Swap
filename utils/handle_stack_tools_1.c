@@ -14,12 +14,14 @@
 
 int	size_stack(t_stack **stack)
 {
-	int	x;
+	t_stack	*tmp;
+	int		x;
 
+	tmp = *stack;
 	x = 0;
-	while (stack[x])
+	while (tmp)
 	{
-		stack[x] = stack[x]->next;
+		tmp = tmp->next;
 		x++;
 	}
 	return (x);

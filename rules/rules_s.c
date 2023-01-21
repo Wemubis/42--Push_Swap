@@ -14,17 +14,19 @@
 
 void	sa(t_pile stack)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
+	t_stack	*tmp1;
 
 	if (stack_is_empty(stack.a) || (*stack.a)->next == NULL)
 		return ;
-	temp = *stack.a;
-	*stack.a = (*stack.a)->next;
-	(*stack.a)->next = temp;
-	// temp->next = (*stack.a)->next->next;
+	tmp = (*stack.a)->next;
+	tmp1 = tmp->next;
+	tmp->next = *stack.a;
+	(*stack.a)->next = tmp1;
 	write(1, "sa\n", 3);
 }
 
+// see if what's on top is okay
 void	sb(t_pile stack)
 {
 	t_stack	*temp;
