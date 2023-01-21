@@ -6,7 +6,7 @@
 #    By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 14:30:13 by mle-boud          #+#    #+#              #
-#    Updated: 2023/01/18 18:42:01 by mle-boud         ###   ########.fr        #
+#    Updated: 2023/01/21 19:46:15 by mle-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ RULES = rules_p.c rules_r.c rules_rr.c rules_s.c \
 
 SORT = sort_big.c sort_huge.c sort_small.c \
 
-UTILS = check.c create_stack.c errors_process.c set_ranking.c \
+UTILS = check.c create_stack.c errors_process.c replace_data_with_rank.c \
 		handle_stack_tools.c handle_stack_tools_1.c \
 
 ############ DIRS + SRCS #############
@@ -52,7 +52,7 @@ OBJS = $(OBJS_SRCS) $(OBJS_RULES) $(OBJS_SORT) $(OBJS_UTILS)
 all: otherMakefile $(NAME)
 
 $(NAME): $(OBJS) libft/libft.a
-	$(CC) $(CFLAGS) $^ -fsanitize=address -g -o $@
+	$(CC) $(CFLAGS) $^ -fsanitize=address -g3 -o $@
 
 otherMakefile:
 	make -C libft

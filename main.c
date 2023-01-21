@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:30 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/20 14:52:55 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 18:32:54 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 int	main(int ac, char **av)
 {
-	t_pile	stack;
+	t_pile	stack_a;
+	t_pile	stack_b;
 
-	stack.a = malloc(sizeof(t_stack *));
 	if (ac < 2)
 		errors_process("e.g.: ./pushswap [nb] [nb] [nb]...");
 	if (ac == 2)
-		stack.a = split_arg_to_stack(stack.a, av[1]);
+		split_arg_to_stack(&stack_a, av[1]);
 	if (ac > 2)
-		stack.a = fill_stack(stack.a, ac, av);
-	push_swap(stack);
-	exit(EXIT_SUCCESS);
+		fill_stack(&stack_a, ac, av);
+	push_swap(&stack_a, &stack_b);
+	clear_stack(stack_a);
+	return (0);
 }

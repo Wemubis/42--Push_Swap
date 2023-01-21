@@ -6,32 +6,27 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:50:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/20 14:00:42 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 19:44:03 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-int	check_if_sorted(t_stack **stack)
+int	check_if_sorted(t_pile *a)
 {
-	int		content;
 	int		i;
 	t_stack	*tmp;
 
 	i = 0;
-	content = (*stack)->data;
-	if (!(*stack)->next)
-		return (1);
-	tmp = (*stack)->next;
-	while ((content < tmp->data) && tmp->next)
+	tmp = a->first;
+	while (++i < a->size)
 	{
-		content = tmp->data;
+		if (tmp->data > tmp->next->data)
+			return (0);
 		tmp = tmp->next;
-		i++;
 	}
-	if (i == size_stack(stack))
-		return (1);
-	return (0);
+	return (1);
 }
 
 void	check_stack_validity(char **args)
@@ -53,19 +48,4 @@ void	check_stack_validity(char **args)
 		}
 		i++;
 	}
-}
-
-int	find_location(t_stack **stack, int rank)
-{
-	int	location;
-	t_stack	*tmp;
-
-	location = 0;
-	tmp = *stack;
-	while (tmp->rank != rank)
-	{
-		tmp = tmp->next;
-		location++;
-	}
-	return (location);
 }
