@@ -6,43 +6,39 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:12:11 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/20 13:54:01 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 18:12:28 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_pile stack)
+void	sa(t_pile *a)
 {
-	t_stack	*tmp;
-	t_stack	*tmp1;
+	int	tmp;
 
-	if (stack_is_empty(stack.a) || (*stack.a)->next == NULL)
+	if (a->size <= 1)
 		return ;
-	tmp = (*stack.a)->next;
-	tmp1 = tmp->next;
-	tmp->next = *stack.a;
-	(*stack.a)->next = tmp1;
+	tmp = a->first->next->data;
+	a->first->next->data = a->first->data;
+	a->first->data = tmp;
 	write(1, "sa\n", 3);
 }
 
-// see if what's on top is okay
-void	sb(t_pile stack)
+void	sb(t_pile *b)
 {
-	t_stack	*temp;
+	int	tmp;
 
-	if (stack_is_empty(stack.b) || (*stack.b)->next == NULL)
+	if (b->size <= 1)
 		return ;
-	temp = *stack.b;
-	*stack.b = (*stack.b)->next;
-	(*stack.b)->next = temp;
-	// temp->next = (*stack.b)->next->next;
+	tmp = b->first->next->data;
+	b->first->next->data = b->first->data;
+	b->first->data = tmp;
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_pile stack)
+void	ss(t_pile *a, t_pile *b)
 {
-	sa(stack);
-	sb(stack);
+	sa(a);
+	sb(b);
 	write(1, "ss\n", 3);
 }

@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_ranking.c                                      :+:      :+:    :+:   */
+/*   replace_data_with_rank.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 14:55:25 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/20 14:02:58 by mle-boud         ###   ########.fr       */
+/*   Created: 2023/01/21 19:46:21 by mle-boud          #+#    #+#             */
+/*   Updated: 2023/01/21 19:51:18 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_ranking(t_stack **stack)
+void	replace_data_with_rank(t_pile *a)
 {
-	int		ranking;
+	int		rank;
 	t_stack	*tmp;
 	t_stack	*tmp1;
-	t_stack	*start;
 
-	start = *stack;
-	tmp1 = start;
+	tmp1 = a->first;
 	while (tmp1)
 	{
-		tmp = start;
-		ranking = 0;
+		tmp = a->first;
+		rank = 0;
 		while (tmp)
 		{
 			if (tmp1->data > tmp->data)
-				ranking++;
+				rank++;
 			tmp = tmp->next;
 		}
-		tmp1->rank = ranking;
+		tmp1->data = rank;
 		tmp1 = tmp1->next;
 	}
 }

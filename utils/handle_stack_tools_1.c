@@ -6,23 +6,25 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:44:53 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/20 14:01:08 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 18:17:35 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	size_stack(t_stack **stack)
+void	free_block(t_stack *node)
 {
-	t_stack	*tmp;
-	int		x;
+	if (node->prev)
+		node->prev->next = node->next;
+	if (node->next)
+		node->next->prev = node->prev;
+	free(node);
+}
 
-	tmp = *stack;
-	x = 0;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		x++;
-	}
-	return (x);
+void	free_stack(t_pile stack)
+{
+	if (!stack.first)
+		return ;
+	while (stack.size--)
+		free_bloc(stack.first->next);
 }

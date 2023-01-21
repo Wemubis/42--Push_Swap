@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:16:56 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/20 15:30:55 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 18:29:40 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,56 @@ t_stack	*new_element(int data)
 	if (!new)
 		exit(EXIT_FAILURE);
 	new->data = data;
+	new->prev = NULL;
 	new->next = NULL;
 	return (new);
 }
 
-void	push_stack(t_stack **stack, int data)
+void	push_before(t_stack *stack, t_stack *node)
 {
-	t_stack	*temp;
-
-	temp = new_element(data);
-	if (!temp)
-		exit(EXIT_FAILURE);
-	if (stack_is_empty(stack))
-		*stack = temp;
-	else
-		temp->next = *stack;
-
+	if (!node)
+		return ;
+	if (!stack)
+	{
+		stack = node;
+		return ;
+	}
+	node->prev = stack->prev;
+	node->next = stack;
+	if (node->prev != NULL)
+		node->prev->next = node;
+	if (node->next != NULL)
+		node->next->prev = node;
 }
 
-void	pop_stack(t_stack **stack)
+void	push_after(t_stack *stack, t_stack *node)
 {
-	t_stack	*temp;
+	if (!stack || !node)
+		return ;
+	node->prev = stack;
+	node->next = stack->next;
+	if (node->prev != NULL)
+		node->prev->next = node;
+	if (node->next != NULL)
+		node->next->prev = node;
+}
 
-	if (*stack)
+t_stack	*pop(t_pile *stack)
+{
+	t_stack	*tmp;
+
+	tmp = stack->first;
+	if (stack->size == 1)
+		stack->first = NULL;
+	else
 	{
-		temp = *stack;
-		*stack = (*stack)->next;
-		temp->next = NULL;
-		free(temp);
+		stack->first = stack->first->next;
+		stack->first->prev = stack->first->prev->prev;
+		stack->first->prev->next = stack->first;
 	}
+	tmp->next = tmp;
+	tmp->prev = tmp;
+	return (tmp);
 }
 
 t_stack	*last_element(t_stack **stack)
@@ -61,11 +82,4 @@ t_stack	*last_element(t_stack **stack)
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	return (tmp);
-}
-
-int	stack_is_empty(t_stack **stack)
-{
-	if (*stack == NULL)
-		return (1);
-	return (0);
 }

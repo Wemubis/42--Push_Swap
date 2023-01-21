@@ -6,26 +6,24 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:14:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/20 14:44:33 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 18:06:12 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_pile stack)
+void	pa(t_pile *a, t_pile *b)
 {
-	if (stack_is_empty(stack.b) == 1)
+	if (b->first == NULL)
 		return ;
-	push_stack(stack.a, (*stack.b)->data);
-	pop_stack(stack.b);
+	push_before(a->first, pop(b));
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_pile stack)
+void	pb(t_pile *a, t_pile *b)
 {
-	if (stack_is_empty(stack.a) == 1)
+	if (a->first == NULL)
 		return ;
-	push_stack(stack.b, (*stack.a)->data);
-	pop_stack(stack.a);
+	push_stack(b->first, pop(a));
 	write(1, "pb\n", 3);
 }
