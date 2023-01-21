@@ -71,15 +71,3 @@ t_stack	*pop(t_pile *stack)
 	tmp->prev = tmp;
 	return (tmp);
 }
-
-t_stack	*last_element(t_stack **stack)
-{
-	t_stack	*tmp;
-
-	if (!*stack)
-		return (NULL);
-	tmp = *stack;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	return (tmp);
-}

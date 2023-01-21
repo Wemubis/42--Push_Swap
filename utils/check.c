@@ -11,20 +11,17 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	check_if_sorted(t_pile *a)
 {
 	int		i;
-	t_stack	*tmp;
 
-	i = 0;
-	tmp = a->first;
+	i = -1;
 	while (++i < a->size)
 	{
-		if (tmp->data > tmp->next->data)
+		if (a->first->data > a->first->next->data)
 			return (0);
-		tmp = tmp->next;
+		a->first = a->first->next;
 	}
 	return (1);
 }

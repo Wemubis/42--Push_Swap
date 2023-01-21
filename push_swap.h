@@ -61,7 +61,6 @@ void	rrr(t_pile *a, t_pile *b);
 /*------------------ STACK ------------------*/
 t_stack	*pop(t_pile *stack);
 t_stack	*new_element(int data);
-t_stack	*last_element(t_stack **stack);
 void	push_before(t_stack *stack, t_stack *node);
 void	push_after(t_stack *stack, t_stack *node);
 void	free_block(t_stack *node);

@@ -19,15 +19,14 @@ void	split_arg_to_stack(t_pile *a, char *arg)
 
 	tab = ft_split(arg, ' ');
 	check_stack_validity(tab);
-	a->size = 0;
 	x = 0;
 	while (tab[x])
 		x++;
+	a->size = x;
 	x--;
 	while (x >= 0)
 	{
 		push_before(a->first, new_element(ft_atoi(tab[x])));
-		a->size++;
 		x--;
 	}
 }
@@ -35,11 +34,10 @@ void	split_arg_to_stack(t_pile *a, char *arg)
 void	fill_stack(t_pile *a, int ac, char **av)
 {
 	check_stack_validity(av);
-	a->size = 0;
+	a->size = ac - 1;
 	while (ac > 1)
 	{
 		push_after(a->first, new_element(ft_atoi(av[ac -1])));
-		a->size++;
 		ac--;
 	}
 }
