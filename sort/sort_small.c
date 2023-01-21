@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 08:53:40 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/21 19:10:11 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 20:21:22 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static void	sort_in_b(t_pile *a, t_pile *b)
 	tmp = a->first;
 	while (a->size > 3)
 	{
-		if (tmp->rank == x)
+		if (tmp->data == x)
 		{
 			pb(a, b);
 			x++;
 		}
-		if (find_location(a->first, x) < size)
+		if (find_location(a->first, x) < size / 2)
 			sa(a);
 		else
 			ra(a);
@@ -41,25 +41,23 @@ static void	sort_in_b(t_pile *a, t_pile *b)
 void	sort_small(t_pile *a, t_pile *b)
 {
 	t_stack	*tmp;
-	int		size_a;
 
-	size_a = size_stack(stack.a);
-	set_ranking(stack.a);
-	if (size_a > 3)
-		sort_in_b(stack);
-	tmp = *stack.a;
+	replace_data_with_rank(a);
+	if (a->size > 3)
+		sort_in_b(a, b);
+	tmp = a->first;
 	while (!check_if_sorted(a))
 	{
-		if (tmp->rank == (size_a - 1))
-			ra(stack);
-		else if (tmp->rank > tmp->next->rank)
-			sa(stack);
+		if (tmp->data == (a->size - 1))
+			ra(a);
+		else if (tmp->data > tmp->next->data)
+			sa(a);
 		else
-			rra(stack);
+			rra(a);
 	}
-	while (size_a > 3)
+	while (a->size > 3)
 	{
-		pa(stack);
-		size_a--;
+		pa(a, b);
+		a->size--;
 	}
 }

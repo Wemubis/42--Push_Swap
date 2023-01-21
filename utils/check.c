@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:50:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/21 19:44:03 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 20:21:59 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,19 @@ void	check_stack_validity(char **args)
 		}
 		i++;
 	}
+}
+
+int	find_location(t_stack *top, int rank)
+{
+	t_stack	*tmp;
+	int		index;
+
+	index = 0;
+	tmp = top;
+	while (tmp->data != rank)
+	{
+		tmp = tmp->next;
+		index++;
+	}
+	return (index);
 }

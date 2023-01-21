@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:30 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/21 18:32:54 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 20:12:49 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	main(int ac, char **av)
 	if (ac > 2)
 		fill_stack(&stack_a, ac, av);
 	push_swap(&stack_a, &stack_b);
-	clear_stack(stack_a);
+	free_stack(stack_a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/21 19:49:06 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/21 20:21:34 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	push_swap(t_pile *a, t_pile *b);
 
 /*------------------ UTILS ------------------*/
 int		check_if_sorted(t_pile *a);
+int		find_location(t_stack *top, int rank);
 void	errors_process(char *str);
 void	check_stack_validity(char **args);
 void	replace_data_with_rank(t_pile *a);

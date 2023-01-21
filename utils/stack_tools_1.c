@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_tools_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 16:33:48 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/21 20:21:28 by mle-boud         ###   ########.fr       */
+/*   Created: 2023/01/18 13:44:53 by mle-boud          #+#    #+#             */
+/*   Updated: 2023/01/21 20:13:51 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void	push_swap(t_pile *a, t_pile *b)
+void	free_block(t_stack *node)
 {
-	if (check_if_sorted(a))
-		return ;
-	if (a->size <= 5)
-		sort_small(a, b);
+	if (node->prev)
+		node->prev->next = node->next;
+	if (node->next)
+		node->next->prev = node->prev;
+	free(node);
 }
-	// if (a->size <= 100)
-	// 	sort_big(stack);
-	// if (a->size <= 500)
-	// 	sort_huge(stack);
+
+void	free_stack(t_pile stack)
+{
+	if (!stack.first)
+		return ;
+	while (stack.size--)
+		free_block(stack.first->next);
+}
