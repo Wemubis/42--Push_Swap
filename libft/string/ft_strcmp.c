@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_r.c                                          :+:      :+:    :+:   */
+/*   fr_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:13:59 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/22 13:19:29 by mle-boud         ###   ########.fr       */
+/*   Created: 2023/01/22 17:42:48 by mle-boud          #+#    #+#             */
+/*   Updated: 2023/01/22 17:43:16 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ra(t_pile *a)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	a->head = a->head->next;
-	write(1, "ra\n", 3);
-}
+	size_t	i;
 
-void	rb(t_pile *b)
-{
-	b->head = b->head->next;
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_pile *a, t_pile *b)
-{
-	ra(a);
-	rb(b);
-	write(1, "rr\n", 3);
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

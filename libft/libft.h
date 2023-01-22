@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:44:52 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/18 14:58:42 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/22 17:43:41 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	*ft_calloc(size_t count, size_t size);
 char	**ft_split(char const *s, char c);
 char	*ft_strcat(char *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
+int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2);

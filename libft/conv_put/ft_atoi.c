@@ -6,12 +6,11 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:32:11 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/18 15:00:27 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:03:31 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../../push_swap.h"
 
 int	ft_atoi(const char *str)
 {
@@ -37,7 +36,5 @@ int	ft_atoi(const char *str)
 		a = a * 10 + ((str[i] - 48) * s);
 		i++;
 	}
-	if (a < INT_MIN || a > INT_MAX)
-		errors_process("A non int has been detected");
 	return ((int)a);
 }
