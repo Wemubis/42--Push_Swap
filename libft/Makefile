@@ -6,7 +6,7 @@
 #    By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:33:24 by mle-boud          #+#    #+#              #
-#    Updated: 2022/12/11 19:33:24 by mle-boud         ###   ########.fr        #
+#    Updated: 2023/01/22 17:47:53 by mle-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ STRING = ft_bzero.c ft_calloc.c ft_split.c ft_strchr.c \
 		ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
 		ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
 		ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c \
-		ft_strcat.c \
+		ft_strcat.c ft_strcmp.c \
 
 LIST = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
 		ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c \

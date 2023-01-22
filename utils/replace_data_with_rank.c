@@ -6,30 +6,48 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 19:46:21 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/21 19:51:18 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:07:12 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	replace_data_with_rank(t_pile *a)
+static int	find_rank(t_pile *a, t_stack *top)
 {
+	int		j;
 	int		rank;
 	t_stack	*tmp;
-	t_stack	*tmp1;
 
-	tmp1 = a->first;
-	while (tmp1)
+	j = 0;
+	rank = 0;
+	tmp = a->head;
+	while (j < a->size)
 	{
-		tmp = a->first;
-		rank = 0;
-		while (tmp)
-		{
-			if (tmp1->data > tmp->data)
-				rank++;
-			tmp = tmp->next;
-		}
-		tmp1->data = rank;
-		tmp1 = tmp1->next;
+		if (top->data > tmp->data)
+			rank++;
+		tmp = tmp->next;
+		j++;
 	}
+	return (rank);
+}
+
+void	replace_data_with_rank(t_pile *a)
+{
+	int		*tab_rank;
+	int		i;
+	t_stack	*tmp;
+
+	tab_rank = malloc(sizeof(int *) * a->size);
+	if (!tab_rank)
+		errors_process("malloc fail");
+	i = 0;
+	tmp = a->head;
+	while (i < a->size)
+	{
+		tab_rank[i] = find_rank(a, tmp);
+		printf("tmp->data=%d tab_rank[i]=%d\n", tmp->data, tab_rank[i]);
+		tmp = tmp->next;
+		i++;
+	}
+	free(tab_rank);
 }

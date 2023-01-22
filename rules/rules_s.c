@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:12:11 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/21 18:12:28 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:19:51 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	sa(t_pile *a)
 
 	if (a->size <= 1)
 		return ;
-	tmp = a->first->next->data;
-	a->first->next->data = a->first->data;
-	a->first->data = tmp;
+	tmp = a->head->next->data;
+	a->head->next->data = a->head->data;
+	a->head->data = tmp;
 	write(1, "sa\n", 3);
 }
 
@@ -30,9 +30,9 @@ void	sb(t_pile *b)
 
 	if (b->size <= 1)
 		return ;
-	tmp = b->first->next->data;
-	b->first->next->data = b->first->data;
-	b->first->data = tmp;
+	tmp = b->head->next->data;
+	b->head->next->data = b->head->data;
+	b->head->data = tmp;
 	write(1, "sb\n", 3);
 }
 

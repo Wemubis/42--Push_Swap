@@ -6,13 +6,13 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:56:57 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/21 18:32:28 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:19:13 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	split_arg_to_stack(t_pile *a, char *arg)
+void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg)
 {
 	char	**tab;
 	int		x;
@@ -23,21 +23,39 @@ void	split_arg_to_stack(t_pile *a, char *arg)
 	while (tab[x])
 		x++;
 	a->size = x;
-	x--;
-	while (x >= 0)
+	a->head = new_element(ft_atoi(tab[x - 1]));
+	a->head->prev = a->head;
+	a->head->next = a->head;
+	b->size = 0;
+	b->head = NULL;
+	while (x)
 	{
-		push_before(a->first, new_element(ft_atoi(tab[x])));
+		push_before(a->head, new_element(ft_atoi(tab[x - 1])));
+		if (a->head->prev)
+			a->head = a->head->prev;
+		else
+			free_stack(a->head, a->size);
 		x--;
 	}
 }
 
-void	fill_stack(t_pile *a, int ac, char **av)
+void	fill_stack(t_pile *a, t_pile *b, int ac, char **av)
 {
 	check_stack_validity(av);
-	a->size = ac - 1;
-	while (ac > 1)
+	a->size = ac;
+	a->head = new_element(ft_atoi(av[ac - 1]));
+	a->head->prev = a->head;
+	a->head->next = a->head;
+	b->size = 0;
+	b->head = NULL;
+	ac--;
+	while (ac)
 	{
-		push_after(a->first, new_element(ft_atoi(av[ac -1])));
+		push_after(a->head, new_element(ft_atoi(av[ac - 1])));
+		if (a->head->prev)
+			a->head = a->head->prev;
+		else
+			free_stack(a->head, a->size);
 		ac--;
 	}
 }
