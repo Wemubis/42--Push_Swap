@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:56:57 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/22 18:19:13 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:31:31 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	fill_stack(t_pile *a, t_pile *b, int ac, char **av)
 	ac--;
 	while (ac)
 	{
-		push_after(a->head, new_element(ft_atoi(av[ac - 1])));
+		push_before(a->head, new_element(ft_atoi(av[ac - 1])));
 		if (a->head->prev)
 			a->head = a->head->prev;
 		else
