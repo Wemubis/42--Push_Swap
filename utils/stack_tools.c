@@ -37,18 +37,6 @@ void	push_before(t_stack *stack, t_stack *node)
 		node->next->prev = node;
 }
 
-void	push_after(t_stack *stack, t_stack *node)
-{
-	if (!stack || !node)
-		return ;
-	node->prev = stack;
-	node->next = stack->next;
-	if (node->prev != NULL)
-		node->prev->next = node;
-	if (node->next != NULL)
-		node->next->prev = node;
-}
-
 t_stack	*pop(t_pile *stack)
 {
 	t_stack	*tmp;

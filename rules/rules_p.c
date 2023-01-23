@@ -12,20 +12,45 @@
 
 #include "push_swap.h"
 
+static void push_to_other_stack(t_stack *from, t_stack *to)
+{
+	t_stack *poped;
+	t_stack *stock;
+
+	if (!from)
+		return;
+	poped = pop(from);
+	if (to)
+	{
+		stock = to->prev;
+		to->prev = poped;
+		to->prev->next = to;
+		to->prev->prev = stock;
+		to->prev->prev->next = poped;
+		to = to->prev;
+	}
+	else
+	{
+		to = poped;
+		to->next = to;
+		to->prev = to;
+	}
+}
+
 void	pa(t_pile *a, t_pile *b)
 {
-	if (b->head == NULL)
+	if (!b->head)
 		return ;
-	push_before(a->head, pop(b));
+	push_to_other_stack(b->head, a->head);
 	a->size++;
 	write(1, "pa\n", 3);
 }
 
 void	pb(t_pile *a, t_pile *b)
 {
-	if (a->head == NULL)
+	if (!a->head)
 		return ;
-	push_before(b->head, pop(a));
+	push_to_other_stack(a->head, b->head);
 	b->size++;
 	write(1, "pb\n", 3);
 }

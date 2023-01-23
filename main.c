@@ -27,3 +27,7 @@ int	main(int ac, char **av)
 	free_stack(a.head, a.size);
 	return (0);
 }
+
+// essayer de faire plusieurs fois le tour de ma stack pour voir
+// quoi est relie a quoi et etre sur de mes valeurs !!!!
+// pourquoi pas le faire dans la boucle while de replace_with_rank

@@ -41,9 +41,7 @@ void	sort_small(t_pile *a, t_pile *b)
 
 	replace_data_with_rank(a);
 	if (a->size > 3)
-	{
 		sort_in_b(a, b);
-	}
 	write(1, "sort in b done\n", 15);
 	exit(EXIT_SUCCESS);
 	tmp = a->head;
