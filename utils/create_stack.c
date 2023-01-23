@@ -24,17 +24,12 @@ void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg)
 		x++;
 	a->size = x;
 	a->head = new_element(ft_atoi(tab[x - 1]));
-	a->head->prev = a->head;
-	a->head->next = a->head;
 	b->size = 0;
 	b->head = NULL;
 	while (x)
 	{
 		push_before(a->head, new_element(ft_atoi(tab[x - 1])));
-		if (a->head->prev)
-			a->head = a->head->prev;
-		else
-			free_stack(a->head, a->size);
+		a->head = a->head->prev;
 		x--;
 	}
 }
@@ -44,18 +39,13 @@ void	fill_stack(t_pile *a, t_pile *b, int ac, char **av)
 	check_stack_validity(av);
 	a->size = ac;
 	a->head = new_element(ft_atoi(av[ac - 1]));
-	a->head->prev = a->head;
-	a->head->next = a->head;
 	b->size = 0;
 	b->head = NULL;
 	ac--;
 	while (ac)
 	{
 		push_before(a->head, new_element(ft_atoi(av[ac - 1])));
-		if (a->head->prev)
-			a->head = a->head->prev;
-		else
-			free_stack(a->head, a->size);
+		a->head = a->head->prev;
 		ac--;
 	}
 }

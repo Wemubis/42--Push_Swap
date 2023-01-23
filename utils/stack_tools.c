@@ -20,21 +20,19 @@ t_stack	*new_element(int data)
 	if (!new)
 		errors_process("Problem initialization new node");
 	new->data = data;
-	new->prev = NULL;
-	new->next = NULL;
+	new->prev = new;
+	new->next = new;
 	return (new);
 }
 
-void	push_before(t_stack *stack, t_stack *node)
+void	push_before(t_stack *stack, t_stack *to_add)
 {
-	if (!stack || !node)
+	if (!stack || !to_add)
 		return ;
-	node->prev = stack->prev;
-	node->next = stack;
-	if (node->prev != NULL)
-		node->prev->next = node;
-	if (node->next != NULL)
-		node->next->prev = node;
+	to_add->prev = stack->prev;
+	to_add->next = stack;
+	to_add->prev->next = to_add;
+	to_add->next->prev = to_add;
 }
 
 t_stack	*pop(t_pile *stack)
