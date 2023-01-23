@@ -31,7 +31,7 @@ RULES = rules_p.c rules_r.c rules_rr.c rules_s.c \
 SORT = sort_big.c sort_huge.c sort_small.c \
 
 UTILS = check.c create_stack.c errors_process.c replace_data_with_rank.c \
-		stack_tools.c stack_tools_1.c \
+		stack_tools.c \
 
 ############ DIRS + SRCS #############
 SRCS_RULES = $(addprefix $(DIR_RULES), $(RULES))

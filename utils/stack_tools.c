@@ -54,3 +54,24 @@ t_stack	*pop(t_pile *stack)
 	tmp->prev = tmp;
 	return (tmp);
 }
+
+void	free_block(t_stack *node)
+{
+	if (node->prev)
+		node->prev->next = node->next;
+	if (node->next)
+		node->next->prev = node->prev;
+	free(node);
+}
+
+void	free_stack(t_stack *stack, int size)
+{
+	if (!stack)
+		return ;
+	while (size)
+	{
+		free_block(stack);
+		stack = stack->next;
+		size--;
+	}
+}
