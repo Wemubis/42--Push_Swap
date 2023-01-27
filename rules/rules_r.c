@@ -14,12 +14,16 @@
 
 void	ra(t_pile *a)
 {
+	if (a->head->next == a->head)
+		return ;
 	a->head = a->head->next;
 	write(1, "ra\n", 3);
 }
 
 void	rb(t_pile *b)
 {
+	if (b->head->next == b->head)
+		return ;
 	b->head = b->head->next;
 	write(1, "rb\n", 3);
 }

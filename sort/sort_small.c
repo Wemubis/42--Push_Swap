@@ -26,7 +26,7 @@ static void	sort_in_b(t_pile *a, t_pile *b)
 			pb(a, b);
 			x++;
 		}
-		if (find_location(tmp, x) < (a->size / 2))
+		else if (find_location(tmp, x) < (a->size / 2))
 			sa(a);
 		else
 			ra(a);

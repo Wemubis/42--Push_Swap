@@ -29,13 +29,15 @@ static void	is_number_int(int number, char *str)
 int	check_if_sorted(t_stack *head, int size)
 {
 	int		i;
+	t_stack	*tmp;
 
 	i = -1;
+	tmp = head;
 	while (++i < size)
 	{
-		if (head->data > head->next->data)
+		if (tmp->data > tmp->next->data)
 			return (0);
-		head = head->next;
+		tmp = tmp->next;
 	}
 	return (1);
 }
@@ -58,19 +60,4 @@ void	check_stack_validity(char **args)
 		}
 		i++;
 	}
-}
-
-int	find_location(t_stack *head, int rank)
-{
-	t_stack	*tmp;
-	int		index;
-
-	index = 0;
-	tmp = head;
-	while (tmp->data != rank)
-	{
-		tmp = tmp->next;
-		index++;
-	}
-	return (index);
 }

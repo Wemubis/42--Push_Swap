@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_rr.c                                         :+:      :+:    :+:   */
+/*   sort_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:13:49 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/22 13:19:38 by mle-boud         ###   ########.fr       */
+/*   Created: 2023/01/25 23:31:02 by mle-boud          #+#    #+#             */
+/*   Updated: 2023/01/25 23:31:02 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_pile *a)
+void	sort_a(t_pile *a, t_pile *b)
 {
-	if (a->head->prev == a->head)
-		return ;
-	a->head = a->head->prev;
-	write(1, "rra\n", 3);
-}
+	int	ref;
 
-void	rrb(t_pile *b)
-{
-	if (b->head->prev == b->head)
-		return ;
-	b->head = b->head->prev;
-	write(1, "rrb\n", 3);
-}
-
-void	rrr(t_pile *a, t_pile *b)
-{
-	rra(a);
-	rrb(b);
-	write(1, "rrr\n", 3);
+	while (theorical_positioning(a, b->head->data) != 0)
+	{
+		ref = theorical_positioning(a, b->head->data);
+		if (ref == -1 && b->head->data > a->head->prev->data)
+			break ;
+		if (ref < 0 || (ref > 0 && ref > median(a)))
+			rra(a);
+		if (ref > 0 && ref <= median(a))
+			ra(a);
+	}
+	pa(a, b);
 }

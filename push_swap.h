@@ -36,7 +36,6 @@ void	push_swap(t_pile *a, t_pile *b);
 
 /*------------------ UTILS ------------------*/
 int		check_if_sorted(t_stack *head, int size);
-int		find_location(t_stack *top, int rank);
 void	errors_process(char *str);
 void	check_stack_validity(char **args);
 void	replace_data_with_rank(t_pile *a);
@@ -44,7 +43,16 @@ void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg);
 void	fill_stack(t_pile *a, t_pile *b, int ac, char **av);
 
 /*------------------- SORT ------------------*/
+void	sort_big(t_pile *a, t_pile *b);
 void	sort_small(t_pile *a, t_pile *b);
+void	sort_a(t_pile *a, t_pile *b);
+
+/*------------------- FIND ------------------*/
+int		median(t_pile *stack);
+int		data_max(t_pile *stack);
+int		data_min(t_pile *stack);
+int		location(t_stack *top, int rank);
+int		theorical_positioning(t_pile *stack, int data);
 
 /*------------------ RULES ------------------*/
 void	pa(t_pile *a, t_pile *b);
@@ -63,7 +71,6 @@ void	rrr(t_pile *a, t_pile *b);
 t_stack	*pop(t_pile *stack);
 t_stack	*new_element(int data);
 void	push_before(t_stack *stack, t_stack *node);
-void	push_after(t_stack *stack, t_stack *node);
 void	free_block(t_stack *node);
 void	free_stack(t_stack *stack, int size);
 
