@@ -99,6 +99,9 @@ void	sort_big(t_pile *a, t_pile *b)
 	int	chunk_size[2];
 	int	value_chunk[5];
 
+	replace_data_with_rank(a);
+	if (check_if_sorted(a->head, a->size))
+		return ;
 	chunk_size[0] = a->size / 5;
 	i = -1;
 	while (++i < 4)
