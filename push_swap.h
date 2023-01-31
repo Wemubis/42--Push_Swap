@@ -45,7 +45,8 @@ void	fill_stack(t_pile *a, t_pile *b, int ac, char **av);
 /*------------------- SORT ------------------*/
 void	sort_big(t_pile *a, t_pile *b);
 void	sort_small(t_pile *a, t_pile *b);
-void	sort_a(t_pile *a, t_pile *b);
+void	sort_chunk_a(t_pile *a, t_pile *b);
+void	sort_a(t_pile *a);
 
 /*------------------- FIND ------------------*/
 int		median(t_pile *stack);

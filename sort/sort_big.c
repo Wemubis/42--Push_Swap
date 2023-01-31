@@ -27,14 +27,16 @@ static void	put_in_a(t_pile *a, t_pile *b, int chunk_size[2])
 		while (chunk_size[1] && b->size)
 		{
 			if (i % 2 == 1)
-				sort_a(a, b);
+				sort_chunk_a(a, b);
 			else if (i % 2 == 0)
 			{
 				rrb(b);
-				sort_a(a, b);
+				sort_chunk_a(a, b);
 			}
 			chunk_size[1]--;
 		}
+		if (!check_if_sorted(a->head, a->size))
+			sort_a(a);
 		i--;
 	}
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_a(t_pile *a, t_pile *b)
+void	sort_chunk_a(t_pile *a, t_pile *b)
 {
 	int	ref;
 
@@ -27,4 +27,9 @@ void	sort_a(t_pile *a, t_pile *b)
 			ra(a);
 	}
 	pa(a, b);
+}
+
+void	sort_a(t_pile *a)
+{
+	
 }
