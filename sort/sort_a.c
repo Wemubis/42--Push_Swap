@@ -31,5 +31,11 @@ void	sort_chunk_a(t_pile *a, t_pile *b)
 
 void	sort_a(t_pile *a)
 {
-	
+	while (a->head->data != data_min(a))
+	{
+		if (location(a->head, data_max(a)) > median(a))
+			rra(a);
+		else
+			ra(a);
+	}
 }
