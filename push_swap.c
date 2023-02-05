@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:33:48 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/22 17:14:12 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/03 23:51:44 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	push_swap(t_pile *a, t_pile *b)
 		return ;
 	if (a->size <= 5)
 		sort_small(a, b);
-	// if (a->size < 100)
-	// 	sort_big(stack);
+	else
+	 	sort_big(a, b);
 }

@@ -6,7 +6,7 @@
 #    By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:33:24 by mle-boud          #+#    #+#              #
-#    Updated: 2023/01/22 17:47:53 by mle-boud         ###   ########.fr        #
+#    Updated: 2023/02/01 17:18:01 by mle-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ CONV_PUT = ft_atoi.c ft_itoa.c ft_putchar.c ft_putchar_fd.c \
 		ft_putendl_fd.c ft_putnbr.c ft_putnbr_base.c ft_putnbr_fd.c \
 		ft_putstr.c ft_putstr_fd.c \
 
-GNL = get_next_line.c get_next_line_utils.c \
+#GNL = get_next_line.c get_next_line_utils.c \
 
 MEM = ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c \
 		ft_memset.c \

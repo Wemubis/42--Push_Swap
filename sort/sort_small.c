@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 08:53:40 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/22 20:54:19 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:24:28 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	sort_in_b(t_pile *a, t_pile *b)
 			pb(a, b);
 			x++;
 		}
-		else if (find_location(tmp, x) < (a->size / 2))
+		else if (location(tmp, x) < (a->size / 2))
 			sa(a);
 		else
 			ra(a);

@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 23:34:03 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/23 23:34:03 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/03 23:40:00 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,15 @@ static void	after_pb(t_pile *a, t_pile *b, int chunk_size, int val_chunk)
 
 	half = chunk_size / 2;
 	tmp = b->head;
-	nexto = tmp->next;
+	nexto = b->head->next;
+	printf("Hey knut");
 	if (a->head->data > val_chunk && tmp->data < (val_chunk - half))
 		rr(a, b);
 	else if (a->head->data < val_chunk && tmp->data < (val_chunk - half))
 		rb(b);
 	else if (a->head->data > val_chunk)
 		ra(a);
-	if  (tmp->data < nexto->data && tmp->data < nexto->next->data)
+	else if  (tmp->data < nexto->data && tmp->data < nexto->next->data)
 	{
 		rb(b);
 		sb(b);
@@ -71,13 +72,16 @@ static void	put_in_b(t_pile *a, t_pile *b, int chunk_size[2], int value_chunk[5]
 	int	i;
 	
 	i = 0;
+	printf("before the loop");
 	while (value_chunk[i])
 	{
+		printf("In big loop");
 		chunk_size[1] = chunk_size[0];
 		while (chunk_size[1] && a->size)
 		{
 			if (a->head->data < value_chunk[i])
 				pb(a, b);
+			printf("after pb tu connais");
 			after_pb(a, b, chunk_size[0], value_chunk[i]);
 			chunk_size[1]--;
 		}
@@ -86,6 +90,7 @@ static void	put_in_b(t_pile *a, t_pile *b, int chunk_size[2], int value_chunk[5]
 			while (a->size)
 			{
 				pb(a, b);
+				printf("after pb tu connais V2222222");
 				after_pb(a, b, chunk_size[0], value_chunk[i]);
 			}
 		}
@@ -100,6 +105,7 @@ void	sort_big(t_pile *a, t_pile *b)
 	int	value_chunk[5];
 
 	replace_data_with_rank(a);
+	printf("before the chunking");
 	if (check_if_sorted(a->head, a->size))
 		return ;
 	chunk_size[0] = a->size / 5;

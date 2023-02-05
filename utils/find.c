@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 22:29:46 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/26 22:29:46 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:25:04 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,13 @@ int	theorical_positioning(t_pile *stack, int data)
 	if (!stack->head)
 		return (0);
 	tmp = stack->head;
-	while (data > tmp->data && tmp->next->data != find_data_max(stack))
+	while (data > tmp->data && tmp->next->data != data_max(stack))
 	{
 		tmp = tmp->next;
 		index++;
 	}
 	tmp = stack->head;
-	while (data < tmp->data && tmp->prev->data != find_data_max(stack))
+	while (data < tmp->data && tmp->prev->data != data_max(stack))
 	{
 		tmp = tmp->prev;
 		index--;

@@ -6,16 +6,16 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:44:52 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/22 17:43:41 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:17:31 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-// #ifndef BUFFER_SIZE
-// # define BUFFER_SIZE 256
-// #endif
+ #ifndef BUFFER_SIZE
+ # define BUFFER_SIZE 256
+ #endif
 
 /*-------------------------HEAD-------------------------*/
 # include <unistd.h>
