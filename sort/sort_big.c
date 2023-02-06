@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 23:34:03 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/06 20:17:06 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 21:31:20 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,9 @@ void	sort_big(t_pile *a, t_pile *b)
 	int	chunk_size[2];
 	int	value_chunk[5];
 
-	printf("before the chunking");
-	if (check_if_sorted(a))
+	if (check_if_sorted(a) == 1)
 		return ;
-	printf("after check sorted");
+	ft_printf("after check sorted");
 	chunk_size[0] = a->size / 5;
 	i = -1;
 	while (++i < 4)
