@@ -6,11 +6,21 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:56:57 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/06 01:08:52 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 22:05:29 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	free_tab(char **tab)
+{
+	int	i;
+
+	i = -1;
+	while (tab[++i])
+		free(tab[i]);
+	free(tab);
+}
 
 void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg)
 {
@@ -34,6 +44,7 @@ void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg)
 		a->head = a->head->prev;
 		x--;
 	}
+	free_tab(tab);
 	free(tab_rank);
 }
 
