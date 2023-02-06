@@ -6,49 +6,45 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 19:46:21 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/04 00:04:54 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 00:45:15 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	find_rank(t_pile *a, t_stack *top)
+static int	find_rank(char **av, char *arg, int k)
 {
-	int		j;
+	int		i;
 	int		rank;
-	t_stack	*tmp;
 
-	j = 0;
+	i = 0;
 	rank = 0;
-	tmp = a->head;
-	while (j < a->size)
+	while (i < k)
 	{
-		if (top->data > tmp->data)
+		if (ft_atoi(arg) > ft_atoi(av[i]))
 			rank++;
-		tmp = tmp->next;
-		j++;
+		i++;
 	}
 	return (rank);
 }
 
-void	replace_data_with_rank(t_pile *a)
+int	*replace_data_with_rank(char **av)
 {
 	int		*tab_rank;
 	int		i;
+	int		k;
 
-	tab_rank = malloc(sizeof(int *) * a->size);
+	k = 0;
+	while (av[k])
+		k++;
+	tab_rank = malloc(sizeof(int *) * k);
 	if (!tab_rank)
 		errors_process("malloc fail");
 	i = 0;
-	while (i < a->size)
+	while (i < k)
 	{
-		tab_rank[i] = find_rank(a, a->head);
-		printf("a->head->data=%d tab_rank[i]=%d\n", a->head->data, tab_rank[i]);
-		a->head = a->head->next;
+		tab_rank[i] = find_rank(av, av[i], k);
 		i++;
 	}
-	i = -1;
-	while (++i < a->size)
-		a->head->data = tab_rank[i];
-	free(tab_rank);
+	return (tab_rank);
 }

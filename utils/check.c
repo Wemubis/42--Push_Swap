@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:50:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/22 17:58:08 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:25:40 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,22 @@ static void	is_number_int(int number, char *str)
 	}
 }
 
-int	check_if_sorted(t_stack *head, int size)
+int	check_if_sorted(t_pile *stack)
 {
 	int		i;
 	t_stack	*tmp;
 
-	i = -1;
-	tmp = head;
-	while (++i < size)
+	i = 0;
+	tmp = stack->head;
+	while (i < (stack->size - 1))
 	{
-		if (tmp->data > tmp->next->data)
+		if (stack->head->data > stack->head->next->data)
+		{
+			stack->head = tmp;
 			return (0);
-		tmp = tmp->next;
+		}
+		stack->head = stack->head->next;
+		i++;
 	}
 	return (1);
 }

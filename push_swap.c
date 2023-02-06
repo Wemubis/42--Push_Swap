@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:33:48 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/03 23:51:44 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:27:09 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push_swap(t_pile *a, t_pile *b)
 {
-	if (check_if_sorted(a->head, a->size))
+	if (check_if_sorted(a) == 1)
 		return ;
 	if (a->size <= 5)
 		sort_small(a, b);

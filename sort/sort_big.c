@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 23:34:03 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/03 23:40:00 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:16:23 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	put_in_a(t_pile *a, t_pile *b, int chunk_size[2])
 			}
 			chunk_size[1]--;
 		}
-		if (!check_if_sorted(a->head, a->size))
+		if (!check_if_sorted(a))
 			sort_a(a);
 		i--;
 	}
@@ -104,9 +104,8 @@ void	sort_big(t_pile *a, t_pile *b)
 	int	chunk_size[2];
 	int	value_chunk[5];
 
-	replace_data_with_rank(a);
 	printf("before the chunking");
-	if (check_if_sorted(a->head, a->size))
+	if (check_if_sorted(a))
 		return ;
 	chunk_size[0] = a->size / 5;
 	i = -1;

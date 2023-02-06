@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/22 17:09:33 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:15:33 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ typedef struct s_pile
 void	push_swap(t_pile *a, t_pile *b);
 
 /*------------------ UTILS ------------------*/
-int		check_if_sorted(t_stack *head, int size);
+int		check_if_sorted(t_pile *stack);
 void	errors_process(char *str);
 void	check_stack_validity(char **args);
-void	replace_data_with_rank(t_pile *a);
+int		*replace_data_with_rank(char **av);
 void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg);
 void	fill_stack(t_pile *a, t_pile *b, int ac, char **av);
 
