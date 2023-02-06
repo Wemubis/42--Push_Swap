@@ -6,7 +6,7 @@
 #    By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 14:30:13 by mle-boud          #+#    #+#              #
-#    Updated: 2023/01/21 19:55:05 by mle-boud         ###   ########.fr        #
+#    Updated: 2023/02/06 20:03:46 by mle-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRCS = main.c push_swap.c \
 
 RULES = rules_p.c rules_r.c rules_rr.c rules_s.c \
 
-SORT = sort_big.c sort_small.c sort_a.c \
+SORT = sort_big.c sort_inf_ten.c sort_small.c sort_a.c \
 
 UTILS = check.c create_stack.c errors_process.c replace_data_with_rank.c \
 		stack_tools.c find.c \

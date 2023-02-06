@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/06 01:43:44 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:08:05 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	fill_stack(t_pile *a, t_pile *b, int ac, char **av);
 
 /*------------------- SORT ------------------*/
 void	sort_big(t_pile *a, t_pile *b);
+void	sort_inf_ten(t_pile *a, t_pile *b);
 void	sort_small(t_pile *a, t_pile *b);
 void	sort_chunk_a(t_pile *a, t_pile *b);
 void	sort_a(t_pile *a);

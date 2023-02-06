@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 23:34:03 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/06 02:18:53 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:17:06 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,6 @@ static void	after_pb(t_pile *a, t_pile *b, int chunk_size, int val_chunk)
 		rb(b, 0);
 	else if (a->head->data > val_chunk)
 		ra(a, 0);
-	else if  (b_h_d < b_h_n_d && b_h_d < b_h_n_n_d)
-	{
-		rb(b, 0);
-		sb(b, 0);
-		rrb(b, 0);
-	}
 	else if (b_h_d < b_h_n_d && b_h_d > b_h_n_n_d)
 		sb(b, 0);
 }
@@ -116,8 +110,6 @@ void	sort_big(t_pile *a, t_pile *b)
 	value_chunk[i] = a->size;
 	put_in_b(a, b, chunk_size, value_chunk);
 	write(1, "after put in b\n", 15);
-	// NOW I NEED TO CHECK PUT IN A CAUSE SOME PB IF SIZE < 10
-	// WITH A CONDITION "IF ... < 10" USE SOMETHING ELSE
 	put_in_a(a, b, chunk_size);
-	printf("after put in a");
+	write(1, "after put in a\n", 15);
 }
