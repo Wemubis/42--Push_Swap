@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/06 01:15:33 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:43:44 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ int		theorical_positioning(t_pile *stack, int data);
 /*------------------ RULES ------------------*/
 void	pa(t_pile *a, t_pile *b);
 void	pb(t_pile *a, t_pile *b);
-void	sa(t_pile *a);
-void	sb(t_pile *b);
+void	sa(t_pile *a, int bool);
+void	sb(t_pile *b, int bool);
 void	ss(t_pile *a, t_pile *b);
-void	ra(t_pile *a);
-void	rb(t_pile *b);
+void	ra(t_pile *a, int bool);
+void	rb(t_pile *b, int bool);
 void	rr(t_pile *a, t_pile *b);
-void	rra(t_pile *a);
-void	rrb(t_pile *b);
+void	rra(t_pile *a, int bool);
+void	rrb(t_pile *b, int bool);
 void	rrr(t_pile *a, t_pile *b);
 
 /*------------------ STACK ------------------*/

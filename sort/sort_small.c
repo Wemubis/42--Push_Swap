@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 08:53:40 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/06 01:32:22 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:47:16 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ static void	sort_in_b(t_pile *a, t_pile *b)
 			x++;
 		}
 		else if (location(a->head, x) < (a->size / 2))
-			sa(a);
+			sa(a, 0);
 		else
-			ra(a);
+			ra(a, 0);
 	}
 	if (check_if_sorted(b))
-		sb(b);
+		sb(b, 0);
 }
 
 void	sort_small(t_pile *a, t_pile *b)
@@ -43,11 +43,11 @@ void	sort_small(t_pile *a, t_pile *b)
 	while (check_if_sorted(a) == 0)
 	{
 		if (a->head->data == save_size - 1)
-			ra(a);
+			ra(a, 0);
 		else if (a->head->data > a->head->next->data)
-			sa(a);
+			sa(a, 0);
 		else
-			rra(a);
+			rra(a, 0);
 	}
 	while (save_size > 3)
 	{
