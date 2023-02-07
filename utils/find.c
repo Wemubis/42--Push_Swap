@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 22:29:46 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/06 20:16:51 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/07 01:13:41 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,18 @@ int	data_max(t_pile *stack)
 	return (data_max);
 }
 
-int	location(t_stack *head, int rank)
+int	location(t_pile *stack, int rank)
 {
 	t_stack	*tmp;
 	int		index;
 
 	index = 0;
-	tmp = head;
-	while (head->data != rank)
+	tmp = stack->head;
+	while (tmp->data != rank)
 	{
-		head = head->next;
+		tmp = tmp->next;
 		index++;
 	}
-	head = tmp;
 	return (index);
 }
 

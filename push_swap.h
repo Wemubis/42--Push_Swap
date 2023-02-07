@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/06 20:08:05 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/07 01:13:02 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	sort_a(t_pile *a);
 int		median(t_pile *stack);
 int		data_max(t_pile *stack);
 int		data_min(t_pile *stack);
-int		location(t_stack *top, int rank);
+int		location(t_pile *stack, int rank);
 int		theorical_positioning(t_pile *stack, int data);
 
 /*------------------ RULES ------------------*/

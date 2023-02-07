@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 23:31:02 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/06 01:48:33 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/07 01:12:33 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sort_a(t_pile *a)
 {
 	while (a->head->data != data_min(a))
 	{
-		if (location(a->head, data_max(a)) > median(a))
+		if (location(a, data_max(a)) > median(a))
 			rra(a, 0);
 		else
 			ra(a, 0);
