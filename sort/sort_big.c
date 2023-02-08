@@ -6,90 +6,100 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 23:34:03 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/06 21:31:20 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/08 01:06:08 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	put_in_a(t_pile *a, t_pile *b, int chunk_size[2])
+static void	put_in_a(t_pile *a, t_pile *b, int ch_size[2])
 {
 	int	i;
-	int	value_chunk[10];
+	int	val_ch[10];
 
 	i = -1;
 	while (++i < 9)
-		value_chunk[i] = chunk_size[0] / 2 * (i + 1);
-	value_chunk[i] = b->size;
-	while (value_chunk[i])
+		val_ch[i] = ch_size[0] / 2 * (i + 1);
+	val_ch[i] = b->size;
+	while (val_ch[i])
 	{
-		chunk_size[1] = chunk_size[0] / 2;
-		while (chunk_size[1] && b->size)
+		ch_size[1] = ch_size[0] / 2;
+		while (ch_size[1] && b->size)
 		{
-			if (i % 2 == 1)
-				sort_chunk_a(a, b);
-			else if (i % 2 == 0)
+			if (i == 9)
 			{
-				rrb(b, 0);
-				sort_chunk_a(a, b);
+				first_chunk(a, b);
+				break ;
 			}
-			chunk_size[1]--;
+			if (i % 2 == 0)
+				rrb(b, 0);
+			sort_chunk_a(a, b);
+			ch_size[1]--;
 		}
-		if (!check_if_sorted(a))
+		if (check_if_sorted(a) == 0)
 			sort_a(a);
 		i--;
 	}
 }
 
-static void	after_pb(t_pile *a, t_pile *b, int chunk_size, int val_chunk)
+static void	after_pb(t_pile *a, t_pile *b, int chunk_size, int val)
 {
 	int	half;
-	int	b_h_d;
-	int	b_h_n_d;
-	int	b_h_n_n_d;
 
 	half = chunk_size / 2;
-	b_h_d = b->head->data;
-	b_h_n_d = b->head->next->data;
-	b_h_n_n_d = b->head->next->next->data;
-	if (a->head->data > val_chunk && b_h_d < (val_chunk - half))
+	val -= half;
+	if ((a->head->data && a->head->prev->data)>= val && b->head->data < val)
 		rr(a, b);
-	else if (a->head->data < val_chunk && b_h_d < (val_chunk - half))
-		rb(b, 0);
-	else if (a->head->data > val_chunk)
+	else if ((a->head->data && a->head->prev->data) >= val)
 		ra(a, 0);
-	else if (b_h_d < b_h_n_d && b_h_d > b_h_n_n_d)
-		sb(b, 0);
+	else if (b->head->data < val)
+	{
+		rb(b, 0);
+		if (a->head->prev->data < val)
+			rra(a, 0);
+	}
 }
 
-static void	put_in_b(t_pile *a, t_pile *b, int chunk_size[2], int value_chunk[5])
+static void	last_chunk(t_pile *a, t_pile *b, int val[5])
+{
+	int	half;
+
+	half = val[4] - val[3] + 1;
+	while (a->size)
+	{
+		pb(a, b);
+		if (!a->head)
+			return ;
+		after_pb(a, b, half, val[4]);
+	}
+}
+
+static void	put_in_b(t_pile *a, t_pile *b, int ch_size[2], int val_ch[5])
 {
 	int	i;
 	
-	i = 0;
-	while (value_chunk[i])
+	i = -1;
+	while (val_ch[++i])
 	{
-		chunk_size[1] = chunk_size[0];
-		while (chunk_size[1] && a->size)
+		if (a->size && i == 4)
 		{
-			if (a->head->data < value_chunk[i])
+			last_chunk(a, b, val_ch);
+			return ;
+		}
+		ch_size[1] = ch_size[0];
+		while (ch_size[1] && a->size)
+		{
+			if (a->head->data < val_ch[i])
 			{
 				pb(a, b);
-				after_pb(a, b, chunk_size[0], value_chunk[i]);
+				after_pb(a, b, ch_size[0], val_ch[i]);
+				ch_size[1]--;
 			}
-			chunk_size[1]--;
+			else if (a->head->prev->data < val_ch[i])
+				rra(a, 0);
+			else
+				ra(a, 0);
 		}
-		if (a->size != 0 && i == 4)
-		{
-			while (a->size > 0)
-			{
-				pb(a, b);
-				if (!a->head)
-					break ;
-				after_pb(a, b, chunk_size[0], value_chunk[i]);
-			}
-		}
-		i++;
 	}
 }
 
@@ -101,7 +111,6 @@ void	sort_big(t_pile *a, t_pile *b)
 
 	if (check_if_sorted(a) == 1)
 		return ;
-	ft_printf("after check sorted");
 	chunk_size[0] = a->size / 5;
 	i = -1;
 	while (++i < 4)
@@ -111,4 +120,12 @@ void	sort_big(t_pile *a, t_pile *b)
 	write(1, "after put in b\n", 15);
 	put_in_a(a, b, chunk_size);
 	write(1, "after put in a\n", 15);
+	i = 0;
+	while (i < a->size)
+	{
+		ft_printf(">%d< ", a->head->data);
+		a->head = a->head->next;
+		i++;
+	}
+	ft_printf("\n");
 }

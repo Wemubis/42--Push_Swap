@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/07 01:13:02 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/08 00:49:00 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_pile
 void	push_swap(t_pile *a, t_pile *b);
 
 /*------------------ UTILS ------------------*/
+void	first_chunk(t_pile *a, t_pile *b);
 int		check_if_sorted(t_pile *stack);
 void	errors_process(char *str);
 void	check_stack_validity(char **args);

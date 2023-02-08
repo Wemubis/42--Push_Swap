@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:50:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/07 00:35:36 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:56:53 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	is_number_int(int number, char *str)
 {
 	if (number == -1 && ft_strcmp("-1", str))
 		errors_process("A non int has been detected");
-	if (*str == '-')
+	if (*str == '-' && number < 0)
 		str++;
 	while (*str)
 	{
