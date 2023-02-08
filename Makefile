@@ -6,11 +6,11 @@
 #    By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 14:30:13 by mle-boud          #+#    #+#              #
-#    Updated: 2023/02/06 20:03:46 by mle-boud         ###   ########.fr        #
+#    Updated: 2023/02/08 01:33:13 by mle-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pushswap
+NAME = push_swap
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
