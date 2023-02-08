@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 23:34:03 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/08 01:06:08 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/08 01:13:02 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,15 +117,5 @@ void	sort_big(t_pile *a, t_pile *b)
 		value_chunk[i] = chunk_size[0] * (i + 1);
 	value_chunk[i] = a->size;
 	put_in_b(a, b, chunk_size, value_chunk);
-	write(1, "after put in b\n", 15);
 	put_in_a(a, b, chunk_size);
-	write(1, "after put in a\n", 15);
-	i = 0;
-	while (i < a->size)
-	{
-		ft_printf(">%d< ", a->head->data);
-		a->head = a->head->next;
-		i++;
-	}
-	ft_printf("\n");
 }
