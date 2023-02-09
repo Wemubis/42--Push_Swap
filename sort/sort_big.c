@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 23:34:03 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/08 01:13:02 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:45:29 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,12 @@ static void	put_in_a(t_pile *a, t_pile *b, int ch_size[2])
 				first_chunk(a, b);
 				break ;
 			}
-			if (i % 2 == 0)
-				rrb(b, 0);
+			lil_lil_sort(a, b);
 			sort_chunk_a(a, b);
 			ch_size[1]--;
 		}
 		if (check_if_sorted(a) == 0)
-			sort_a(a);
+			sort_a(a, b, val_ch, i);
 		i--;
 	}
 }
