@@ -52,7 +52,7 @@ OBJS = $(OBJS_SRCS) $(OBJS_RULES) $(OBJS_SORT) $(OBJS_UTILS)
 all: otherMakefile $(NAME)
 
 $(NAME): $(OBJS) libft/libft.a
-	$(CC) $(CFLAGS) $^ -fsanitize=address -g3 -o $@
+	$(CC) $(CFLAGS) $^ -o $@
 
 otherMakefile:
 	make -C libft
