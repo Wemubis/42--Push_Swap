@@ -15,7 +15,6 @@
 
 /*----------------- HEADERS -----------------*/
 # include "libft/libft.h"
-# include <stdio.h>
 
 /*----------------- STRUCTS -----------------*/
 typedef struct s_stack
