@@ -13,10 +13,6 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
- #ifndef BUFFER_SIZE
- # define BUFFER_SIZE 256
- #endif
-
 /*-------------------------HEAD-------------------------*/
 # include <unistd.h>
 # include <stdlib.h>
@@ -33,14 +29,6 @@ int		ft_nbr_b_printf(long nb, char *base);
 int		ft_putnbr_unsigned_printf(unsigned int n);
 int		ft_ptr_b_printf(void *n, char *base);
 int		ft_putstr_printf(char *s);
-
-/*-----------------GNL----------------*/
-char	*get_next_line(int fd);
-size_t	gnl_strlen(char *str);
-char	*gnl_strdup(char *s);
-char	*gnl_strchr(char *s, int c);
-char	*gnl_strjoin(char *s1, char *s2);
-char	*keep_left(char *s);
 
 /*----------------CHAR----------------*/
 int		ft_isalnum(int c);
