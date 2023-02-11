@@ -47,7 +47,7 @@ static void	after_pb(t_pile *a, t_pile *b, int chunk_size, int val)
 
 	half = chunk_size / 2;
 	val -= half;
-	if ((a->head->data && a->head->prev->data)>= val && b->head->data < val)
+	if ((a->head->data && a->head->prev->data) >= val && b->head->data < val)
 		rr(a, b);
 	else if ((a->head->data && a->head->prev->data) >= val)
 		ra(a, 0);
@@ -76,7 +76,7 @@ static void	last_chunk(t_pile *a, t_pile *b, int val[5])
 static void	put_in_b(t_pile *a, t_pile *b, int ch_size[2], int val_ch[5])
 {
 	int	i;
-	
+
 	i = -1;
 	while (val_ch[++i])
 	{

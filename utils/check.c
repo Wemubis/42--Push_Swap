@@ -15,13 +15,13 @@
 static void	is_number_int(int number, char *str)
 {
 	if (number == -1 && ft_strcmp("-1", str))
-		errors_process("A non int has been detected");
+		error();
 	if (*str == '-' && number < 0)
 		str++;
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			errors_process("A non digit has been detected");
+			error();
 		str++;
 	}
 }
@@ -49,6 +49,8 @@ void	check_stack_validity(char **args)
 	int		j;
 
 	i = 0;
+	if (!args[i])
+		exit(EXIT_FAILURE);
 	while (args[i])
 	{
 		is_number_int(ft_atoi(args[i]), args[i]);
@@ -56,7 +58,7 @@ void	check_stack_validity(char **args)
 		while (args[j])
 		{
 			if (!ft_strcmp(args[i], args[j]))
-				errors_process("A double has been detected");
+				error();
 			j++;
 		}
 		i++;

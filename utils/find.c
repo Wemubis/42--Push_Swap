@@ -55,13 +55,13 @@ int	data_max(t_pile *stack)
 	return (data_max);
 }
 
-int	location(t_pile *stack, int rank)
+int	location(t_pile *a, int rank)
 {
 	t_stack	*tmp;
 	int		index;
 
 	index = 0;
-	tmp = stack->head;
+	tmp = a->head;
 	while (tmp->data != rank)
 	{
 		tmp = tmp->next;

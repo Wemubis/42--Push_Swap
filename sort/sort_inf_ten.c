@@ -25,7 +25,7 @@ static void	put_in_a(t_pile *a, t_pile *b)
 static void	put_in_b(t_pile *a, t_pile *b, int ch_size, int *value_ch)
 {
 	int	i;
-	
+
 	i = 0;
 	while (value_ch[i])
 	{
@@ -39,6 +39,8 @@ static void	put_in_b(t_pile *a, t_pile *b, int ch_size, int *value_ch)
 					break ;
 				ch_size--;
 			}
+			else if (a->head->prev->data < value_ch[i])
+				rra(a, 0);
 			else if (a->head->data >= value_ch[i])
 				ra(a, 0);
 		}
@@ -61,7 +63,7 @@ void	sort_inf_ten(t_pile *a, t_pile *b)
 		temp = (a->size / 2);
 	value_ch = malloc(sizeof(int *) * (temp + 1));
 	if (!value_ch)
-		errors_process("malloc");
+		error();
 	i = -1;
 	ch_size = 2;
 	while (++i < temp)

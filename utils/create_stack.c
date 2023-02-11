@@ -22,6 +22,20 @@ static void	free_tab(char **tab)
 	free(tab);
 }
 
+static void	loop_last(t_pile *a)
+{
+	t_stack	*got_poped;
+	int		i;
+
+	i = -1;
+	while (++i < a->size)
+		a->head = a->head->next;
+	a->head = a->head->prev;
+	got_poped = pop(a);
+	free_block(got_poped);
+	a->head = a->head->next;
+}
+
 void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg)
 {
 	char	**tab;
@@ -44,6 +58,7 @@ void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg)
 		a->head = a->head->prev;
 		x--;
 	}
+	loop_last(a);
 	free_tab(tab);
 	free(tab_rank);
 }

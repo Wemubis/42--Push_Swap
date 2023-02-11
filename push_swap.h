@@ -37,7 +37,7 @@ void	push_swap(t_pile *a, t_pile *b);
 void	lil_lil_sort(t_pile *a, t_pile *b);
 void	first_chunk(t_pile *a, t_pile *b);
 int		check_if_sorted(t_pile *stack);
-void	errors_process(char *str);
+void	error(void);
 void	check_stack_validity(char **args);
 int		*replace_data_with_rank(char **av);
 void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg);

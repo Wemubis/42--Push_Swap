@@ -18,8 +18,8 @@ void	push_swap(t_pile *a, t_pile *b)
 		return ;
 	if (a->size <= 5)
 		sort_small(a, b);
-	if (a->size < 10)
+	else if (a->size < 10)
 		sort_inf_ten(a, b);
 	else
-	 	sort_big(a, b);
+		sort_big(a, b);
 }

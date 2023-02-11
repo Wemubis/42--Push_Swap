@@ -26,6 +26,8 @@ static void	sort_in_b(t_pile *a, t_pile *b)
 		}
 		else if (location(a, x) < (a->size / 2))
 			sa(a, 0);
+		else if (a->head->prev->data == x || a->head->prev->prev->data == x)
+			rra(a, 0);
 		else
 			ra(a, 0);
 	}
@@ -42,7 +44,7 @@ void	sort_small(t_pile *a, t_pile *b)
 		sort_in_b(a, b);
 	while (check_if_sorted(a) == 0)
 	{
-		if (a->head->data == save_size - 1)
+		if (a->head->data == data_max(a))
 			ra(a, 0);
 		else if (a->head->data > a->head->next->data)
 			sa(a, 0);

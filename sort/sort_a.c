@@ -61,29 +61,32 @@ void	sort_chunk_a(t_pile *a, t_pile *b)
 	pa(a, b);
 }
 
-void	sort_a(t_pile *a, t_pile *b,int val_ch[10], int i)
+static void	sort_a_continued(t_pile *a, t_pile *b, int val_1, int val_2)
+{
+	if (location(a, data_max(a)) > median(a))
+	{
+		if (b->head->prev->data > val_1 && b->head->prev->data < val_2)
+			rrr(a, b);
+		else
+			rra(a, 0);
+	}
+	else
+		ra(a, 0);
+}
+
+void	sort_a(t_pile *a, t_pile *b, int val_ch[10], int i)
 {
 	if (i > 1 && i % 2 == 1)
 	{
 		while (a->head->data != data_min(a) && !check_if_sorted(a))
-		{
-			if (location(a, data_max(a)) > median(a))
-			{
-				if (b->head->prev->data > val_ch[i - 2] && b->head->prev->data < val_ch[i - 1])
-					rrr(a, b);
-				else
-					rra(a, 0);
-			}
-			else
-				ra(a, 0);
-		}
+			sort_a_continued(a, b, val_ch[i - 2], val_ch[i - 1]);
 	}
 	else
 	{
 		while (a->head->data != data_min(a) && !check_if_sorted(a))
 		{
 			if (location(a, data_max(a)) > median(a))
-					rra(a, 0);
+				rra(a, 0);
 			else
 				ra(a, 0);
 		}

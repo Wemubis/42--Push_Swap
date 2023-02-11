@@ -12,13 +12,13 @@
 
 #include "push_swap.h"
 
-static void push_to_other_stack(t_pile *from, t_pile *to)
+static void	push_to_other_stack(t_pile *from, t_pile *to)
 {
-	t_stack *poped;
-	t_stack *stock;
+	t_stack	*poped;
+	t_stack	*stock;
 
 	if (!from)
-		return;
+		return ;
 	poped = pop(from);
 	if (to->head)
 	{

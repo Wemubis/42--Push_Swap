@@ -39,7 +39,7 @@ int	*replace_data_with_rank(char **av)
 		k++;
 	tab_rank = malloc(sizeof(int *) * k);
 	if (!tab_rank)
-		errors_process("malloc fail");
+		error();
 	i = 0;
 	while (i < k)
 	{

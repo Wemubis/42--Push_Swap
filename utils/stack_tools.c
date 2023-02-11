@@ -18,7 +18,7 @@ t_stack	*new_element(int data)
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
-		errors_process("Problem initialization new node");
+		error();
 	new->data = data;
 	new->prev = new;
 	new->next = new;
@@ -55,21 +55,24 @@ t_stack	*pop(t_pile *stack)
 
 void	free_block(t_stack *node)
 {
-	if (node->prev)
+	if (node->data != node->next->data)
+	{
 		node->prev->next = node->next;
-	if (node->next)
 		node->next->prev = node->prev;
+	}
 	free(node);
 }
 
-void	free_stack(t_stack *stack, int size)
+void	free_stack(t_stack *head, int size)
 {
-	if (!stack)
+	if (!head)
 		return ;
-	while (size)
+	while (head->data != head->next->data)
 	{
-		free_block(stack);
-		stack = stack->next;
+		head = head->next;
+		free_block(head->prev);
 		size--;
 	}
+	free_block(head);
+	size = 0;
 }

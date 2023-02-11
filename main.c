@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 	t_pile	b;
 
 	if (ac < 2)
-		errors_process("e.g.: ./pushswap [nb] [nb] [nb]...");
+		exit(1);
 	if (ac == 2)
 		split_arg_to_stack(&a, &b, av[1]);
 	if (ac > 2)
