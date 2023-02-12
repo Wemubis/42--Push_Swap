@@ -6,11 +6,11 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:13:15 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/01/22 14:18:56 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/02/12 14:14:14 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	error(void)
 {
