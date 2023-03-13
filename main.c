@@ -17,8 +17,10 @@ int	main(int ac, char **av)
 	t_pile	a;
 	t_pile	b;
 
-	if (ac < 2 || (!ft_isdigit(av[1][0]) && av[1][0] != '-'))
+	if (ac < 2)
 		return (0);
+	if (!ft_isdigit(av[1][0]) && av[1][0] != '-')
+		errors_process();
 	if (ac == 2)
 		split_arg_to_stack(&a, &b, av[1]);
 	if (ac > 2)
