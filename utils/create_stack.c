@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:56:57 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/12 14:14:11 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:25:44 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,6 @@ static void	free_tab(char **tab)
 	while (tab[++i])
 		free(tab[i]);
 	free(tab);
-}
-
-static void	loop_last(t_pile *a)
-{
-	t_stack	*got_poped;
-	int		i;
-
-	i = -1;
-	while (++i < a->size)
-		a->head = a->head->next;
-	a->head = a->head->prev;
-	got_poped = pop(a);
-	free_block(got_poped);
-	a->head = a->head->next;
 }
 
 void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg)
@@ -52,13 +38,13 @@ void	split_arg_to_stack(t_pile *a, t_pile *b, char *arg)
 	a->head = new_element(tab_rank[x - 1]);
 	b->size = 0;
 	b->head = NULL;
+	x--;
 	while (x)
 	{
 		push_before(a->head, new_element(tab_rank[x - 1]));
 		a->head = a->head->prev;
 		x--;
 	}
-	loop_last(a);
 	free_tab(tab);
 	free(tab_rank);
 }
