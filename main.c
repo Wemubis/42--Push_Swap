@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	if (!ft_isdigit(av[1][0]) && av[1][0] != '-')
-		errors_process();
+		error();
 	if (ac == 2)
 		split_arg_to_stack(&a, &b, av[1]);
 	if (ac > 2)
