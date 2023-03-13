@@ -53,7 +53,7 @@ void	check_stack_validity(char **args)
 		exit(EXIT_FAILURE);
 	while (args[i])
 	{
-		if (!ft_isdigit(args[i][0]) && args[i][0] != '-')
+		if (!ft_strlen(args[i]))
 			error();
 		is_number_int(ft_atoi(args[i]), args[i]);
 		j = i + 1;
