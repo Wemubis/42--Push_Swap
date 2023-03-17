@@ -59,7 +59,7 @@ lib:
 
 -include $(DEPS)
 
-%.o: %.c $(HEADER)
+%.o: %.c
 	$(CC) $(CFLAGS) $(DEPFLAGS) -c $< -o $@ 
 
 clean:
