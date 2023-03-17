@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:30:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/09 16:45:34 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:33:01 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	rrr(t_pile *a, t_pile *b);
 t_stack	*pop(t_pile *stack);
 t_stack	*new_element(int data);
 void	push_before(t_stack *stack, t_stack *node);
-void	free_block(t_stack *node);
-void	free_stack(t_stack *stack, int size);
+void	free_stack(t_stack *stack);
 
 #endif

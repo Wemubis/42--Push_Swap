@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 20:25:03 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/03/17 14:16:59 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:33:31 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,20 @@ t_stack	*pop(t_pile *stack)
 	return (tmp);
 }
 
-void	free_block(t_stack *node)
+void	free_stack(t_stack *stack)
 {
-	if (node->data != node->next->data)
-	{
-		node->prev->next = node->next;
-		node->next->prev = node->prev;
-	}
-	free(node);
-}
+	t_stack	*tmp;
+	t_stack	*current;
 
-void	free_stack(t_stack *head, int size)
-{
-	if (!head)
+	if (!stack)
 		return ;
-	while (head->data != head->next->data)
+	current = stack->next;
+	while (current != stack)
 	{
-		head = head->next;
-		free_block(head->prev);
-		size--;
+		tmp = current->next;
+		free(current);
+		current = tmp;
 	}
-	free_block(head);
-	size = 0;
+	free(stack);
+	stack = NULL;
 }

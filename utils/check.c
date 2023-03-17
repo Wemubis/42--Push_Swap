@@ -6,7 +6,7 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:50:06 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/03/17 14:16:35 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:27:47 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	check_stack_validity(char **args)
 		exit(EXIT_FAILURE);
 	while (args[i])
 	{
-		if (!ft_isdigit(args[i][0]) && args[i][0] != '-')
+		if (!ft_strlen(args[i]))
 			error();
 		is_number_int(ft_atoi(args[i]), args[i]);
 		j = i + 1;
