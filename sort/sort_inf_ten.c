@@ -6,11 +6,12 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 20:02:39 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/12 14:13:44 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:16:27 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
+
 static void	put_in_a(t_pile *a, t_pile *b)
 {
 	while (b->size != 0)

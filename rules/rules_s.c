@@ -6,11 +6,11 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:12:11 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/12 14:14:41 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:16:17 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	sa(t_pile *a, int bool)
 {

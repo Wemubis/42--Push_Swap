@@ -6,17 +6,19 @@
 #    By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 14:30:13 by mle-boud          #+#    #+#              #
-#    Updated: 2023/03/13 13:39:01 by mle-boud         ###   ########.fr        #
+#    Updated: 2023/03/17 14:14:59 by mle-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
 RM = rm -f
 
-HEADER = push_swap.h
+D_HDRS = .
+
+CFLAGS = -Wall -Wextra -Werror -g3
+DEPFLAGS = -MMD -MP $(foreach F, $(D_HDRS),-I$(F))
 
 ################ DIRS ################
 DIR_RULES = rules/
@@ -24,7 +26,7 @@ DIR_SORT = sort/
 DIR_UTILS = utils/
 
 ################ SRCS ################
-SRCS = main.c push_swap.c \
+MAIN = main.c push_swap.c \
 
 RULES = rules_p.c rules_r.c rules_rr.c rules_s.c \
 
@@ -37,32 +39,32 @@ UTILS = check.c create_stack.c errors_process.c replace_data_with_rank.c \
 SRCS_RULES = $(addprefix $(DIR_RULES), $(RULES))
 SRCS_SORT = $(addprefix $(DIR_SORT), $(SORT))
 SRCS_UTILS = 	$(addprefix $(DIR_UTILS), $(UTILS))
+SRCS = $(SRCS_RULES) $(SRCS_SORT) $(SRCS_UTILS) $(MAIN)
 
-################ OBJS ################
-OBJS_SRCS = $(patsubst %.c, %.o,$(SRCS))
-OBJS_RULES =  $(patsubst %.c,%.o,$(SRCS_RULES))
-OBJS_SORT =  $(patsubst %.c,%.o,$(SRCS_SORT))
-OBJS_UTILS =  $(patsubst %.c,%.o,$(SRCS_UTILS))
-OBJS = $(OBJS_SRCS) $(OBJS_RULES) $(OBJS_SORT) $(OBJS_UTILS)
+################ OBJS + DEPS ################
+OBJS = $(patsubst %.c, %.o, $(SRCS))
+DEPS = $(patsubst %.c, %.d, $(SRCS))
 
 ################ PHONY ################
 .PHONY: all clean fclean re $(NAME)
 
 ################ RULES ################
-all: otherMakefile $(NAME)
+all: lib $(NAME)
 
 $(NAME): $(OBJS) libft/libft.a
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $^ -o $@
 
-otherMakefile:
-	make -C libft
+lib:
+	@make -C libft --no-print-directory
+
+-include $(DEPS)
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -I. -c $< -o $@ 
+	$(CC) $(CFLAGS) $(DEPFLAGS) -c $< -o $@ 
 
 clean:
 	make -C libft clean
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(DEPS)
 
 fclean: clean
 	$(RM) libft/libft.a

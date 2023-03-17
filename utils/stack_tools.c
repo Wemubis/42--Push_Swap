@@ -6,11 +6,11 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 20:25:03 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/12 14:14:25 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:33:31 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 t_stack	*new_element(int data)
 {

@@ -6,11 +6,11 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:56:57 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/03/13 13:25:44 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:16:40 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	free_tab(char **tab)
 {
