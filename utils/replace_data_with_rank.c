@@ -6,11 +6,11 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 19:46:21 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/12 14:14:22 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:16:57 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static int	find_rank(char **av, char *arg, int k)
 {

@@ -6,11 +6,11 @@
 /*   By: mle-boud <mle-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 23:31:02 by mle-boud          #+#    #+#             */
-/*   Updated: 2023/02/12 14:14:06 by mle-boud         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:16:19 by mle-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	lil_lil_sort(t_pile *a, t_pile *b)
 {
