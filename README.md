@@ -29,16 +29,24 @@ L'algorithme utilise une combinaison de tri par insertion et d'autres techniques
 ## Utilisation
 
 1. **Clonage du dépôt :**
-`git clone https://github.com/Wemubis/push_swap.git`
+```bash
+  git clone https://github.com/Wemubis/push_swap.git
+```
 
-2. **Compilation :**
-`make`
+3. **Compilation :**
+```bash
+  make
+```
 
-3. **Exécution :**
-`./push_swap 3 2 1`
+5. **Exécution :**
+```bash
+  ./push_swap 3 2 1
+```
 
-4. **Vérification avec le checker :**
-`./push_swap 3 2 1 | ./checker 3 2 1`
+7. **Vérification avec le checker :**
+```bash
+  ./push_swap 3 2 1 | ./checker 3 2 1
+```
 
 <br>
 
